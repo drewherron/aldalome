@@ -1,4 +1,4 @@
-# Aldalómë 
+# Aldalómë
 My Vim colorscheme
 
 Vaguely based on Elflord, but much more green.
