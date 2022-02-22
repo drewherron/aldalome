@@ -8,6 +8,9 @@
 " 
 " https://github.com/drewherron/aldalome
 
+" Obviously not done yet
+" Just beginning, actually
+
 " Init
 hi clear
 
@@ -20,7 +23,7 @@ endif
 let g:colors_name='aldalome'
 
 " Function to create highlight groups
-function! s:CreateGroup(group, bg, fg, term)
+function! s:CreateGroup(group, fg, bg, term)
   execute join([ 'hi',
           \ a:group,
           \ 'ctermfg=' . a:fg[0],
@@ -95,16 +98,26 @@ let s:color.tbd48           = [48, "#000000"]
 let s:color.tbd49           = [49, "#000000"]
 let s:color.tbd50           = [50, "#000000"]
 
-" Create groups    (Group,           bg,           fg,    term)
-call s:CreateGroup('Normal', s:color.black, s:color.lime, 'NONE')
-call s:CreateGroup('LineNr', s:color.none, s:color.grey, 'NONE')
+" Create groups   ( Group,      fg,           bg,    term  )
+call s:CreateGroup('Normal',    s:color.lime, s:color.black, 'NONE')
+call s:CreateGroup('Comment',   s:color.aqua, s:color.black, 'NONE')
+call s:CreateGroup('Constant',  s:color.fuchsia, s:color.black, 'UNDERCURL')
+call s:CreateGroup('Error',     s:color.red, s:color.black, 'REVERSE')
+call s:CreateGroup('Function',  s:color.white, s:color.black, 'NONE')
+call s:CreateGroup('Ignore',    s:color.white, s:color.red, 'NONE')
+call s:CreateGroup('Identifier',s:color.aqua, s:color.black, 'NONE')
+call s:CreateGroup('LineNr',    s:color.grey, s:color.black, 'NONE')
+call s:CreateGroup('Operator',  s:color.red, s:color.black, 'NONE')
+call s:CreateGroup('PreProc',   s:color.aqua, s:color.black, 'NONE')
+call s:CreateGroup('Repeat',    s:color.white, s:color.black, 'NONE')
+call s:CreateGroup('Special',   s:color.purple, s:color.black, 'NONE')
+call s:CreateGroup('Statement', s:color.yellow, s:color.black, 'BOLD')
+call s:CreateGroup('Todo',      s:color.blue, s:color.yellow, 'STANDOUT')
+call s:CreateGroup('Type',      s:color.white, s:color.black, 'UNDERLINE')
 
 
 " Link groups
 call s:LinkGroup('WarningMsg', 'Error')
-
-" Obviously not done yet
-" Just beginning, actually
 
 """""""""""""""""
 "    Syntax     "
