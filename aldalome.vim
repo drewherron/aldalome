@@ -47,104 +47,129 @@ function! s:LinkGroup(left, right)
 endfunction
 
 " Define colors
-let s:color = {}
+let s:colors = {}
+let s:colors.none            = ['NONE', 'NONE']
 
-let s:color.none            = ['NONE', 'NONE']
-let s:color.black           = [0, "#000000"]
-let s:color.maroon          = [1, "#800000"]
-let s:color.green           = [2, "#008000"]
-let s:color.olive           = [3, "#808000"]
-let s:color.navy            = [4, "#000080"]
-let s:color.purple          = [5, "#800080"]
-let s:color.teal            = [6, "#008080"]
-let s:color.silver          = [7, "#c0c0c0"]
-let s:color.grey            = [8, "#808080"]
-let s:color.red             = [9, "#ff0000"]
-let s:color.lime            = [10, "#00ff00"]
-let s:color.yellow          = [11, "#ffff00"]
-let s:color.blue            = [12, "#0000ff"]
-let s:color.fuchsia         = [13, "#ff00ff"]
-let s:color.aqua            = [14, "#00ffff"]
-let s:color.white           = [15, "#ffffff"]
+" X11 Palette
+let s:X11 = {}
+let s:X11.black           = [0, "#000000"]
+let s:X11.maroon          = [1, "#800000"]
+let s:X11.green           = [2, "#008000"]
+let s:X11.olive           = [3, "#808000"]
+let s:X11.navy            = [4, "#000080"]
+let s:X11.purple          = [5, "#800080"]
+let s:X11.teal            = [6, "#008080"]
+let s:X11.silver          = [7, "#c0c0c0"]
+let s:X11.gray            = [8, "#808080"]
+let s:X11.red             = [9, "#ff0000"]
+let s:X11.lime            = [10, "#00ff00"]
+let s:X11.yellow          = [11, "#ffff00"]
+let s:X11.blue            = [12, "#0000ff"]
+let s:X11.fuchsia         = [13, "#ff00ff"]
+let s:X11.aqua            = [14, "#00ffff"]
+let s:X11.white           = [15, "#ffffff"]
 
-" P
-let s:color.apple         = [16, "#33ff33"]
-let s:color.amber         = [17, "#ffb000"]
-let s:color.tbd18           = [18, "#000000"]
-let s:color.tbd19           = [19, "#000000"]
-let s:color.tbd20           = [20, "#000000"]
-let s:color.tbd21           = [21, "#000000"]
-let s:color.tbd22           = [22, "#000000"]
-let s:color.tbd23           = [23, "#000000"]
-let s:color.tbd24           = [24, "#000000"]
-let s:color.tbd25           = [25, "#000000"]
-let s:color.tbd26           = [26, "#000000"]
-let s:color.tbd27           = [27, "#000000"]
-let s:color.tbd28           = [28, "#000000"]
-let s:color.tbd29           = [29, "#000000"]
-let s:color.tbd30           = [30, "#000000"]
-let s:color.tbd31           = [31, "#000000"]
-let s:color.tbd32           = [32, "#000000"]
-let s:color.tbd33           = [33, "#000000"]
-let s:color.tbd34           = [34, "#000000"]
-let s:color.tbd35           = [35, "#000000"]
-let s:color.tbd36           = [36, "#000000"]
-let s:color.tbd37           = [37, "#000000"]
-let s:color.tbd38           = [38, "#000000"]
-let s:color.tbd39           = [39, "#000000"]
-let s:color.tbd40           = [40, "#000000"]
-let s:color.tbd41           = [41, "#000000"]
-let s:color.tbd42           = [42, "#000000"]
-let s:color.tbd43           = [43, "#000000"]
-let s:color.tbd44           = [44, "#000000"]
-let s:color.tbd45           = [45, "#000000"]
-let s:color.tbd46           = [46, "#000000"]
-let s:color.tbd47           = [47, "#000000"]
-let s:color.tbd48           = [48, "#000000"]
-let s:color.tbd49           = [49, "#000000"]
-let s:color.tbd50           = [50, "#000000"]
+" X11 Palette
+let s:CGA = {}
+let s:CGA.black           = [0, "#000000"]
+let s:CGA.blue            = [12, "#0000aa"]
+let s:CGA.green           = [2, "#00aa00"]
+let s:CGA.cyan            = [14, "#00aaaa"]
+let s:CGA.red             = [9, "#aa0000"]
+let s:CGA.magenta         = [5, "#aa00aa"]
+let s:CGA.brown           = [3, "#aa5500"]
+let s:CGA.lgray           = [8, "#aaaaaa"]
+let s:CGA.dgray           = [1, "#555555"]
+let s:CGA.lgreen          = [1, "#55ff55"]
+let s:CGA.lblue           = [4, "#5555ff"]
+let s:CGA.lcyan           = [6, "#55ffff"]
+let s:CGA.lred            = [7, "#ff5555"]
+let s:CGA.lmagenta        = [10, "#ff55ff"]
+let s:CGA.yellow          = [11, "#ffff55"]
+let s:CGA.white           = [15, "#ffffff"]
 
 " Apple II palette
 let s:apple = {}
-let s:apple.black           = [0, "#000000"]
-let s:apple.red             = [196, "#dd0033"]
-let s:apple.dblue           = [18, "#000099"]
-let s:apple.purple          = [165, "#dd22dd"]
-let s:apple.dgreen          = [2, "#007722"]
-let s:apple.gray1           = [241, "#555555"]
-let s:apple.mblue           = [12, "#2222ff"]
-let s:apple.lblue           = [75, "#66aaff"]
-let s:apple.brown           = [94, "#885500"]
-let s:apple.orange          = [208, "#ff6600"]
-let s:apple.gray2           = [249, "#aaaaaa"]
-let s:apple.pink            = [210, "#ff9988"]
-let s:apple.lgreen          = [10, "#11dd00"]
-let s:apple.yellow          = [11, "#ffff00"]
-let s:apple.aqua            = [49, "#44ff99"]
-let s:apple.white           = [15, "#ffffff"]
+let s:apple.black         = [0, "#000000"]
+let s:apple.red           = [196, "#dd0033"]
+let s:apple.dblue         = [18, "#000099"]
+let s:apple.purple        = [165, "#dd22dd"]
+let s:apple.dgreen        = [2, "#007722"]
+let s:apple.gray1         = [241, "#555555"]
+let s:apple.mblue         = [12, "#2222ff"]
+let s:apple.lblue         = [75, "#66aaff"]
+let s:apple.brown         = [94, "#885500"]
+let s:apple.orange        = [208, "#ff6600"]
+let s:apple.gray2         = [249, "#aaaaaa"]
+let s:apple.pink          = [210, "#ff9988"]
+let s:apple.lgreen        = [10, "#11dd00"]
+let s:apple.yellow        = [11, "#ffff00"]
+let s:apple.aqua          = [49, "#44ff99"]
+let s:apple.white         = [15, "#ffffff"]
+
+" Phosphors // To be updated
+let s:P = {}
+let s:P.bg           = [18, "#282828"] " Dark gray
+let s:P.P1           = [16, "#33ff33"] " Lime Green
+let s:P.P3           = [17, "#ffb000"] " Amber
+let s:P.P24          = [19, "#66ff66"] " Pale Green
+let s:P.502          = [22, "#00ff66"] " Pale Green
+let s:P.506          = [21, "#00ff33"] " Lime Green
+let s:P.524          = [20, "#33ff00"] " Lime Green
+let s:P.528          = [23, "#41ff00"] " Lime Green
+let s:P.lamber       = [17, "#ffcc00"] " Light Amber
+
+let s:color.tbd24         = [24, "#000000"]
+let s:color.tbd25         = [25, "#000000"]
+let s:color.tbd26         = [26, "#000000"]
+let s:color.tbd27         = [27, "#000000"]
+let s:color.tbd28         = [28, "#000000"]
+let s:color.tbd29         = [29, "#000000"]
+let s:color.tbd30         = [30, "#000000"]
+let s:color.tbd31         = [31, "#000000"]
+let s:color.tbd32         = [32, "#000000"]
+let s:color.tbd33         = [33, "#000000"]
+let s:color.tbd34         = [34, "#000000"]
+let s:color.tbd35         = [35, "#000000"]
+let s:color.tbd36         = [36, "#000000"]
+let s:color.tbd37         = [37, "#000000"]
+let s:color.tbd38         = [38, "#000000"]
+let s:color.tbd39         = [39, "#000000"]
+let s:color.tbd40         = [40, "#000000"]
+let s:color.tbd41         = [41, "#000000"]
+let s:color.tbd42         = [42, "#000000"]
+let s:color.tbd43         = [43, "#000000"]
+let s:color.tbd44         = [44, "#000000"]
+let s:color.tbd45         = [45, "#000000"]
+let s:color.tbd46         = [46, "#000000"]
+let s:color.tbd47         = [47, "#000000"]
+let s:color.tbd48         = [48, "#000000"]
+let s:color.tbd49         = [49, "#000000"]
+let s:color.tbd50         = [50, "#000000"]
+
 
 
 " Create groups   ( Group,        fg,               bg,              term )
-call s:CreateGroup('Normal',      s:color.apple,   s:color.black,  'NONE')
-call s:CreateGroup('Comment',     s:color.amber,     s:color.black,  'NONE')
-call s:CreateGroup('Constant',    s:color.fuchsia,  s:color.black,  'UNDERCURL')
-call s:CreateGroup('Conditional', s:color.fuchsia,  s:color.black,  'UNDERCURL')
-call s:CreateGroup('Define',      s:color.red,      s:color.black,  'REVERSE')
-call s:CreateGroup('Error',       s:color.red,      s:color.black,  'REVERSE')
-call s:CreateGroup('Exception',   s:color.red,      s:color.black,  'REVERSE')
-call s:CreateGroup('Function',    s:color.amber,    s:color.black,  'NONE')
-call s:CreateGroup('Ignore',      s:color.white,    s:color.red,    'NONE')
-call s:CreateGroup('Identifier',  s:color.aqua,     s:color.black,  'NONE')
-call s:CreateGroup('LineNr',      s:apple.gray2,     s:color.black,  'NONE')
-call s:CreateGroup('Number',      s:color.grey,     s:color.black,  'NONE')
-call s:CreateGroup('Operator',    s:color.red,      s:color.black,  'NONE')
-call s:CreateGroup('PreProc',     s:color.aqua,     s:color.black,  'NONE')
-call s:CreateGroup('Repeat',      s:color.white,    s:color.black,  'NONE')
-call s:CreateGroup('Special',     s:apple.gray1,   s:color.black,  'NONE')
-call s:CreateGroup('Statement',   s:color.yellow,   s:color.black,  'BOLD')
-call s:CreateGroup('String',      s:apple.red,   s:color.black,  'NONE')
-call s:CreateGroup('Todo',        s:color.blue,     s:color.yellow, 'STANDOUT')
-call s:CreateGroup('Type',        s:color.white,    s:color.black,  'UNDERLINE')
+call s:CreateGroup('Normal',      s:color.apple,   s:X11.black,  'NONE')
+call s:CreateGroup('Comment',     s:color.amber,   s:X11.black,  'NONE')
+call s:CreateGroup('Constant',    s:X11.fuchsia,   s:X11.black,  'UNDERCURL')
+call s:CreateGroup('Conditional', s:X11.fuchsia,   s:X11.black,  'UNDERCURL')
+call s:CreateGroup('Define',      s:X11.red,       s:X11.black,  'REVERSE')
+call s:CreateGroup('Error',       s:X11.red,       s:X11.black,  'REVERSE')
+call s:CreateGroup('Exception',   s:X11.red,       s:X11.black,  'REVERSE')
+call s:CreateGroup('Function',    s:color.amber,   s:X11.black,  'NONE')
+call s:CreateGroup('Ignore',      s:X11.white,     s:X11.red,    'NONE')
+call s:CreateGroup('Identifier',  s:X11.aqua,      s:X11.black,  'NONE')
+call s:CreateGroup('LineNr',      s:apple.gray2,   s:X11.black,  'NONE')
+call s:CreateGroup('Number',      s:X11.gray,      s:X11.black,  'NONE')
+call s:CreateGroup('Operator',    s:X11.red,       s:X11.black,  'NONE')
+call s:CreateGroup('PreProc',     s:X11.aqua,      s:X11.black,  'NONE')
+call s:CreateGroup('Repeat',      s:X11.white,     s:X11.black,  'NONE')
+call s:CreateGroup('Special',     s:apple.gray1,   s:X11.black,  'NONE')
+call s:CreateGroup('Statement',   s:X11.yellow,    s:X11.black,  'BOLD')
+call s:CreateGroup('String',      s:apple.red,     s:X11.black,  'NONE')
+call s:CreateGroup('Todo',        s:X11.blue,      s:X11.yellow, 'STANDOUT')
+call s:CreateGroup('Type',        s:X11.white,     s:X11.black,  'UNDERLINE')
 
 " Diff
 
