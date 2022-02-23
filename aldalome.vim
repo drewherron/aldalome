@@ -46,9 +46,9 @@ function! s:LinkGroup(left, right)
   execute join(['hi', 'link', a:left, a:right], ' ')
 endfunction
 
-" Define colors
-let s:colors = {}
-let s:colors.none            = ['NONE', 'NONE']
+" Define colors // TODO maybe change to "other" and put at the end
+let s:color = {}
+let s:color.none         = ['NONE', 'NONE']
 
 " X11 Palette
 let s:X11 = {}
@@ -69,23 +69,23 @@ let s:X11.fuchsia         = [13, "#ff00ff"]
 let s:X11.aqua            = [14, "#00ffff"]
 let s:X11.white           = [15, "#ffffff"]
 
-" X11 Palette
+" CGA Palette
 let s:CGA = {}
 let s:CGA.black           = [0, "#000000"]
-let s:CGA.blue            = [12, "#0000aa"]
-let s:CGA.green           = [2, "#00aa00"]
-let s:CGA.cyan            = [14, "#00aaaa"]
-let s:CGA.red             = [9, "#aa0000"]
-let s:CGA.magenta         = [5, "#aa00aa"]
-let s:CGA.brown           = [3, "#aa5500"]
-let s:CGA.lgray           = [8, "#aaaaaa"]
-let s:CGA.dgray           = [1, "#555555"]
-let s:CGA.lgreen          = [1, "#55ff55"]
-let s:CGA.lblue           = [4, "#5555ff"]
-let s:CGA.lcyan           = [6, "#55ffff"]
-let s:CGA.lred            = [7, "#ff5555"]
-let s:CGA.lmagenta        = [10, "#ff55ff"]
-let s:CGA.yellow          = [11, "#ffff55"]
+let s:CGA.blue            = [19, "#0000aa"]
+let s:CGA.green           = [34, "#00aa00"]
+let s:CGA.cyan            = [37, "#00aaaa"]
+let s:CGA.red             = [124, "#aa0000"]
+let s:CGA.magenta         = [127, "#aa00aa"]
+let s:CGA.brown           = [130, "#aa5500"]
+let s:CGA.lgray           = [248, "#aaaaaa"]
+let s:CGA.dgray           = [240, "#555555"]
+let s:CGA.lblue           = [63, "#5555ff"]
+let s:CGA.lgreen          = [83, "#55ff55"]
+let s:CGA.lcyan           = [87, "#55ffff"]
+let s:CGA.lred            = [203, "#ff5555"]
+let s:CGA.lmagenta        = [206, "#ff55ff"]
+let s:CGA.yellow          = [227, "#ffff55"]
 let s:CGA.white           = [15, "#ffffff"]
 
 " Apple II palette
@@ -107,17 +107,16 @@ let s:apple.yellow        = [11, "#ffff00"]
 let s:apple.aqua          = [49, "#44ff99"]
 let s:apple.white         = [15, "#ffffff"]
 
-" Phosphors // To be updated
+" Phosphors // Choose a good green then get a range of shades from it. A few ambers and whites too.
 let s:P = {}
-let s:P.bg           = [18, "#282828"] " Dark gray
-let s:P.P1           = [16, "#33ff33"] " Lime Green
-let s:P.P3           = [17, "#ffb000"] " Amber
-let s:P.P24          = [19, "#66ff66"] " Pale Green
-let s:P.502          = [22, "#00ff66"] " Pale Green
-let s:P.506          = [21, "#00ff33"] " Lime Green
-let s:P.524          = [20, "#33ff00"] " Lime Green
-let s:P.528          = [23, "#41ff00"] " Lime Green
-let s:P.lamber       = [17, "#ffcc00"] " Light Amber
+let s:P.bg                = [235, "#262626"] " Dark gray
+let s:P.P1                = [10, "#33ff33"] " Lime Green
+let s:P.P24               = [83, "#66ff66"] " Pale Green
+let s:P.502               = [84, "#00ff66"] " Pale Green
+let s:P.506               = [10, "#00ff33"] " Lime Green
+let s:P.524               = [82, "#33ff00"] " Lime Green
+let s:P.593               = [220, "#ffcc00"] " Light Amber
+let s:P.P3                = [214, "#ffb000"] " Amber (600nm)
 
 let s:color.tbd24         = [24, "#000000"]
 let s:color.tbd25         = [25, "#000000"]
@@ -148,19 +147,18 @@ let s:color.tbd49         = [49, "#000000"]
 let s:color.tbd50         = [50, "#000000"]
 
 
-
 " Create groups   ( Group,        fg,               bg,              term )
-call s:CreateGroup('Normal',      s:color.apple,   s:X11.black,  'NONE')
-call s:CreateGroup('Comment',     s:color.amber,   s:X11.black,  'NONE')
+call s:CreateGroup('Normal',      s:P.524,   s:X11.black,  'NONE')
+call s:CreateGroup('Comment',     s:P.524,   s:X11.black,  'NONE')
 call s:CreateGroup('Constant',    s:X11.fuchsia,   s:X11.black,  'UNDERCURL')
 call s:CreateGroup('Conditional', s:X11.fuchsia,   s:X11.black,  'UNDERCURL')
 call s:CreateGroup('Define',      s:X11.red,       s:X11.black,  'REVERSE')
 call s:CreateGroup('Error',       s:X11.red,       s:X11.black,  'REVERSE')
 call s:CreateGroup('Exception',   s:X11.red,       s:X11.black,  'REVERSE')
-call s:CreateGroup('Function',    s:color.amber,   s:X11.black,  'NONE')
+call s:CreateGroup('Function',    s:P.P3,   s:X11.black,  'NONE')
 call s:CreateGroup('Ignore',      s:X11.white,     s:X11.red,    'NONE')
 call s:CreateGroup('Identifier',  s:X11.aqua,      s:X11.black,  'NONE')
-call s:CreateGroup('LineNr',      s:apple.gray2,   s:X11.black,  'NONE')
+call s:CreateGroup('LineNr',      s:CGA.dgray,   s:X11.black,  'NONE')
 call s:CreateGroup('Number',      s:X11.gray,      s:X11.black,  'NONE')
 call s:CreateGroup('Operator',    s:X11.red,       s:X11.black,  'NONE')
 call s:CreateGroup('PreProc',     s:X11.aqua,      s:X11.black,  'NONE')
