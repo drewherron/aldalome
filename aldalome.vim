@@ -1,4 +1,15 @@
-"
+"  
+"    db         db                   .dP"Yb         .dP'
+" db    db   db    db               dP'   d'       dP'
+" 
+"   'Yb   `Y888888888b. `Y8888888b.   'Yb    `Yb d88b d88b    
+"    88      .dP'          .dP'        88     88P   88   8b   
+"    88      Y8          ,dP           88     88    8P   88   
+"   .8P      `Y888d,     88            88     88  .dP  .dP    
+"                  8b    Y8     .      88    .888888888888b.
+"           'Yb....dP    `Yb...dP      88
+"             `""""'       `"""'      .8P
+" 
 " 
 " https://github.com/drewherron/aldalome
 
@@ -56,8 +67,9 @@ let s:color.fuchsia         = [13, "#ff00ff"]
 let s:color.aqua            = [14, "#00ffff"]
 let s:color.white           = [15, "#ffffff"]
 
-let s:color.tbd16           = [16, "#000000"]
-let s:color.tbd17           = [17, "#000000"]
+" P
+let s:color.apple         = [16, "#33ff33"]
+let s:color.amber         = [17, "#ffb000"]
 let s:color.tbd18           = [18, "#000000"]
 let s:color.tbd19           = [19, "#000000"]
 let s:color.tbd20           = [20, "#000000"]
@@ -92,27 +104,47 @@ let s:color.tbd48           = [48, "#000000"]
 let s:color.tbd49           = [49, "#000000"]
 let s:color.tbd50           = [50, "#000000"]
 
-" Create groups   ( Group,        fg,           bg,    term  )
-call s:CreateGroup('Normal',      s:color.lime, s:color.black, 'NONE')
-call s:CreateGroup('Comment',     s:color.aqua, s:color.black, 'NONE')
-call s:CreateGroup('Constant',    s:color.fuchsia, s:color.black, 'UNDERCURL')
-call s:CreateGroup('Conditional', s:color.fuchsia, s:color.black, 'UNDERCURL')
-call s:CreateGroup('Define',      s:color.red, s:color.black, 'REVERSE')
-call s:CreateGroup('Error',       s:color.red, s:color.black, 'REVERSE')
-call s:CreateGroup('Exception',   s:color.red, s:color.black, 'REVERSE')
-call s:CreateGroup('Function',    s:color.white, s:color.black, 'NONE')
-call s:CreateGroup('Ignore',      s:color.white, s:color.red, 'NONE')
-call s:CreateGroup('Identifier',  s:color.aqua, s:color.black, 'NONE')
-call s:CreateGroup('LineNr',      s:color.grey, s:color.black, 'NONE')
-call s:CreateGroup('Number',      s:color.grey, s:color.black, 'NONE')
-call s:CreateGroup('Operator',    s:color.red, s:color.black, 'NONE')
-call s:CreateGroup('PreProc',     s:color.aqua, s:color.black, 'NONE')
-call s:CreateGroup('Repeat',      s:color.white, s:color.black, 'NONE')
-call s:CreateGroup('Special',     s:color.purple, s:color.black, 'NONE')
-call s:CreateGroup('Statement',   s:color.yellow, s:color.black, 'BOLD')
-call s:CreateGroup('String',      s:color.purple, s:color.black, 'NONE')
-call s:CreateGroup('Todo',        s:color.blue, s:color.yellow, 'STANDOUT')
-call s:CreateGroup('Type',        s:color.white, s:color.black, 'UNDERLINE')
+" Apple II palette
+let s:apple = {}
+let s:apple.black           = [0, "#000000"]
+let s:apple.red             = [196, "#dd0033"]
+let s:apple.dblue           = [18, "#000099"]
+let s:apple.purple          = [165, "#dd22dd"]
+let s:apple.dgreen          = [2, "#007722"]
+let s:apple.gray1           = [241, "#555555"]
+let s:apple.mblue           = [12, "#2222ff"]
+let s:apple.lblue           = [75, "#66aaff"]
+let s:apple.brown           = [94, "#885500"]
+let s:apple.orange          = [208, "#ff6600"]
+let s:apple.gray2           = [249, "#aaaaaa"]
+let s:apple.pink            = [210, "#ff9988"]
+let s:apple.lgreen          = [10, "#11dd00"]
+let s:apple.yellow          = [11, "#ffff00"]
+let s:apple.aqua            = [49, "#44ff99"]
+let s:apple.white           = [15, "#ffffff"]
+
+
+" Create groups   ( Group,        fg,               bg,              term )
+call s:CreateGroup('Normal',      s:color.apple,   s:color.black,  'NONE')
+call s:CreateGroup('Comment',     s:color.amber,     s:color.black,  'NONE')
+call s:CreateGroup('Constant',    s:color.fuchsia,  s:color.black,  'UNDERCURL')
+call s:CreateGroup('Conditional', s:color.fuchsia,  s:color.black,  'UNDERCURL')
+call s:CreateGroup('Define',      s:color.red,      s:color.black,  'REVERSE')
+call s:CreateGroup('Error',       s:color.red,      s:color.black,  'REVERSE')
+call s:CreateGroup('Exception',   s:color.red,      s:color.black,  'REVERSE')
+call s:CreateGroup('Function',    s:color.amber,    s:color.black,  'NONE')
+call s:CreateGroup('Ignore',      s:color.white,    s:color.red,    'NONE')
+call s:CreateGroup('Identifier',  s:color.aqua,     s:color.black,  'NONE')
+call s:CreateGroup('LineNr',      s:apple.gray2,     s:color.black,  'NONE')
+call s:CreateGroup('Number',      s:color.grey,     s:color.black,  'NONE')
+call s:CreateGroup('Operator',    s:color.red,      s:color.black,  'NONE')
+call s:CreateGroup('PreProc',     s:color.aqua,     s:color.black,  'NONE')
+call s:CreateGroup('Repeat',      s:color.white,    s:color.black,  'NONE')
+call s:CreateGroup('Special',     s:apple.gray1,   s:color.black,  'NONE')
+call s:CreateGroup('Statement',   s:color.yellow,   s:color.black,  'BOLD')
+call s:CreateGroup('String',      s:apple.red,   s:color.black,  'NONE')
+call s:CreateGroup('Todo',        s:color.blue,     s:color.yellow, 'STANDOUT')
+call s:CreateGroup('Type',        s:color.white,    s:color.black,  'UNDERLINE')
 
 " Diff
 
@@ -166,12 +198,6 @@ call s:LinkGroup('WarningMsg', 'Error')
 "call s:LinkGroup('cppRawStringDelimiter', 'Delimiter')
 "call s:LinkGroup('cppNumber', 'Number')
 
-
-"""""""""""""""""
-"    Syntax     "
-"""""""""""""""""
-" These were pulled straight out of the syntax files
-" Just to have a list of group names I could use
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
