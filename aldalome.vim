@@ -9,10 +9,16 @@
 "                  8b    Y8     .      88    .888888888888b.
 "           'Yb....dP    `Yb...dP      88
 "             `""""'       `"""'      .8P
-" 
-" 
-" https://github.com/drewherron/aldalome
-
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" File:             aldalome.vim                           "
+" Author:           Drew Herron                            "
+" Email:            dherron@pdx.edu                        "
+" Source:           github.com/drewherron/aldalome         "
+" License:          MIT                                    "
+" Last Modified:    Constantly                             "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
 " Obviously not done yet
 " Just beginning, actually
 
@@ -109,6 +115,7 @@ let s:apple.white         = [15, "#ffffff"]
 
 " Shades of monochromatic phosphor green
 " 1=darkest    f=lightest 
+" TODO Redo this
 " Probably too dark to be useful
 " Really you only need like 5
 let s:green = {}
@@ -140,12 +147,6 @@ let s:amber.6             = [0, ""]
 let s:amber.7             = [0, ""]
 let s:amber.8             = [0, ""]
 let s:amber.9             = [0, ""]
-let s:amber.a             = [0, ""]
-let s:amber.b             = [0, ""]
-let s:amber.c             = [0, ""]
-let s:amber.d             = [0, ""]
-let s:amber.e             = [0, ""]
-let s:amber.f             = [0, ""]
 
 " Phosphors // Mostly for testing
 let s:P = {}
@@ -172,12 +173,12 @@ call s:CreateGroup('Ignore',      s:X11.white,     s:X11.red,    'NONE')
 call s:CreateGroup('Identifier',  s:X11.aqua,      s:X11.black,  'NONE')
 call s:CreateGroup('LineNr',      s:green.2,   s:X11.black,  'NONE')
 call s:CreateGroup('Number',      s:X11.gray,      s:X11.black,  'NONE')
-call s:CreateGroup('Operator',    s:X11.red,       s:X11.black,  'NONE')
+call s:CreateGroup('Operator',    s:P.593,       s:X11.black,  'NONE')
 call s:CreateGroup('PreProc',     s:X11.aqua,      s:X11.black,  'NONE')
 call s:CreateGroup('Repeat',      s:X11.white,     s:X11.black,  'NONE')
 call s:CreateGroup('Special',     s:apple.gray1,   s:X11.black,  'NONE')
-call s:CreateGroup('Statement',   s:X11.yellow,    s:X11.black,  'BOLD')
-call s:CreateGroup('String',      s:apple.red,     s:X11.black,  'NONE')
+call s:CreateGroup('Statement',   s:P.P3,    s:X11.black,  'BOLD')
+call s:CreateGroup('String',      s:CGA.lmagenta,     s:X11.black,  'NONE')
 call s:CreateGroup('Todo',        s:X11.blue,      s:X11.yellow, 'STANDOUT')
 call s:CreateGroup('Type',        s:X11.white,     s:X11.black,  'UNDERLINE')
 
