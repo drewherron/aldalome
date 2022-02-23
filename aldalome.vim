@@ -107,58 +107,70 @@ let s:apple.yellow        = [11, "#ffff00"]
 let s:apple.aqua          = [49, "#44ff99"]
 let s:apple.white         = [15, "#ffffff"]
 
-" Phosphors // Choose a good green then get a range of shades from it. A few ambers and whites too.
+" Shades of monochromatic phosphor green
+" 1=darkest    f=lightest 
+" Probably too dark to be useful
+" Really you only need like 5
+let s:green = {}
+let s:green.1             = [0, "#00340c"]
+let s:green.2             = [0, "#045514"]
+let s:green.3             = [0, "#045d14"]
+let s:green.4             = [0, "#048620"]
+let s:green.5             = [0, "#049220"]
+let s:green.6             = [0, "#08ba2c"]
+let s:green.7             = [0, "#08c72c"]
+let s:green.8             = [0, "#048a20"]
+let s:green.9             = [0, "#08a224"]
+let s:green.a             = [0, "#08c32c"]
+let s:green.b             = [0, "#08cb30"]
+let s:green.c             = [0, "#0be734"]
+let s:green.d             = [0, "#0bef38"]
+let s:green.e             = [0, "#24ff51"]
+let s:green.f             = [0, "#b5ffc3"]
+
+" TODO Shades of monochromatic phosphor amber
+" 1=darkest    f=lightest 
+let s:amber = {}
+let s:amber.1             = [0, ""]
+let s:amber.2             = [0, ""]
+let s:amber.3             = [0, ""]
+let s:amber.4             = [0, ""]
+let s:amber.5             = [0, ""]
+let s:amber.6             = [0, ""]
+let s:amber.7             = [0, ""]
+let s:amber.8             = [0, ""]
+let s:amber.9             = [0, ""]
+let s:amber.a             = [0, ""]
+let s:amber.b             = [0, ""]
+let s:amber.c             = [0, ""]
+let s:amber.d             = [0, ""]
+let s:amber.e             = [0, ""]
+let s:amber.f             = [0, ""]
+
+" Phosphors // Mostly for testing
 let s:P = {}
 let s:P.bg                = [235, "#262626"] " Dark gray
-let s:P.P1                = [10, "#33ff33"] " Lime Green
-let s:P.P24               = [83, "#66ff66"] " Pale Green
-let s:P.502               = [84, "#00ff66"] " Pale Green
-let s:P.506               = [10, "#00ff33"] " Lime Green
-let s:P.524               = [82, "#33ff00"] " Lime Green
+let s:P.P1                = [10, "#33ff33"]  " Lime Green
+let s:P.P24               = [83, "#66ff66"]  " Pale Green
+let s:P.502               = [84, "#00ff66"]  " Pale Green
+let s:P.506               = [10, "#00ff33"]  " Lime Green
+let s:P.524               = [82, "#33ff00"]  " Lime Green
 let s:P.593               = [220, "#ffcc00"] " Light Amber
 let s:P.P3                = [214, "#ffb000"] " Amber (600nm)
 
-let s:color.tbd24         = [24, "#000000"]
-let s:color.tbd25         = [25, "#000000"]
-let s:color.tbd26         = [26, "#000000"]
-let s:color.tbd27         = [27, "#000000"]
-let s:color.tbd28         = [28, "#000000"]
-let s:color.tbd29         = [29, "#000000"]
-let s:color.tbd30         = [30, "#000000"]
-let s:color.tbd31         = [31, "#000000"]
-let s:color.tbd32         = [32, "#000000"]
-let s:color.tbd33         = [33, "#000000"]
-let s:color.tbd34         = [34, "#000000"]
-let s:color.tbd35         = [35, "#000000"]
-let s:color.tbd36         = [36, "#000000"]
-let s:color.tbd37         = [37, "#000000"]
-let s:color.tbd38         = [38, "#000000"]
-let s:color.tbd39         = [39, "#000000"]
-let s:color.tbd40         = [40, "#000000"]
-let s:color.tbd41         = [41, "#000000"]
-let s:color.tbd42         = [42, "#000000"]
-let s:color.tbd43         = [43, "#000000"]
-let s:color.tbd44         = [44, "#000000"]
-let s:color.tbd45         = [45, "#000000"]
-let s:color.tbd46         = [46, "#000000"]
-let s:color.tbd47         = [47, "#000000"]
-let s:color.tbd48         = [48, "#000000"]
-let s:color.tbd49         = [49, "#000000"]
-let s:color.tbd50         = [50, "#000000"]
-
-
 " Create groups   ( Group,        fg,               bg,              term )
-call s:CreateGroup('Normal',      s:P.524,   s:X11.black,  'NONE')
-call s:CreateGroup('Comment',     s:P.524,   s:X11.black,  'NONE')
+call s:CreateGroup('Normal',      s:green.e,   s:X11.black,  'NONE')
+call s:CreateGroup('Comment',     s:green.8,   s:X11.black,  'NONE')
 call s:CreateGroup('Constant',    s:X11.fuchsia,   s:X11.black,  'UNDERCURL')
 call s:CreateGroup('Conditional', s:X11.fuchsia,   s:X11.black,  'UNDERCURL')
+"Cursor
 call s:CreateGroup('Define',      s:X11.red,       s:X11.black,  'REVERSE')
 call s:CreateGroup('Error',       s:X11.red,       s:X11.black,  'REVERSE')
 call s:CreateGroup('Exception',   s:X11.red,       s:X11.black,  'REVERSE')
 call s:CreateGroup('Function',    s:P.P3,   s:X11.black,  'NONE')
 call s:CreateGroup('Ignore',      s:X11.white,     s:X11.red,    'NONE')
 call s:CreateGroup('Identifier',  s:X11.aqua,      s:X11.black,  'NONE')
-call s:CreateGroup('LineNr',      s:CGA.dgray,   s:X11.black,  'NONE')
+call s:CreateGroup('LineNr',      s:green.2,   s:X11.black,  'NONE')
 call s:CreateGroup('Number',      s:X11.gray,      s:X11.black,  'NONE')
 call s:CreateGroup('Operator',    s:X11.red,       s:X11.black,  'NONE')
 call s:CreateGroup('PreProc',     s:X11.aqua,      s:X11.black,  'NONE')
