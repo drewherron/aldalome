@@ -1,6 +1,8 @@
 # Aldalómë
 My Vim colorscheme
 
-Vaguely based on Elflord, but much more green.
+So extremely under construction that it's not worth looking at yet.
 
-Aldalómë is [Quenya](https://eldamo.org/content/words/word-3242291153.html)
+Vaguely based on Elflord, but more green.
+
+Aldalómë [aldaˈloːmɛ] is a word in [Quenya](https://eldamo.org/content/words/word-3242291153.html).
