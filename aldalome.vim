@@ -1,6 +1,6 @@
 "  
-"    db         db                   .dP"Yb         .dP'
-" db    db   db    db               dP'   d'       dP'
+"    db         db                    .dP"Yb         .dP'
+" db    db   db    db                dP'   d'       dP'
 " 
 "   'Yb   `Y888888888b. `Y8888888b.   'Yb    `Yb d88b d88b    
 "    88      .dP'          .dP'        88     88P   88   8b   
@@ -16,12 +16,12 @@
 " Email:            dherron@pdx.edu                        "
 " Source:           github.com/drewherron/aldalome         "
 " License:          MIT                                    "
-" Last Modified:    Constantly                             "
+" Last Modified:    23FEB22                                "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" Obviously not done yet
-" Just beginning, actually
-
+" Easy way to check the current colorscheme:
+" :so $VIMRUNTIME/syntax/hitest.vim
+"
 " Init
 hi clear
 
@@ -52,9 +52,9 @@ function! s:LinkGroup(left, right)
   execute join(['hi', 'link', a:left, a:right], ' ')
 endfunction
 
-" Define colors // TODO maybe change to "other" and put at the end
-let s:color = {}
-let s:color.none         = ['NONE', 'NONE']
+    """"""""""""""""""""""""""""""""
+    "       Color definitions      "     
+    """"""""""""""""""""""""""""""""
 
 " X11 Palette
 let s:X11 = {}
@@ -118,6 +118,7 @@ let s:apple.white         = [15, "#ffffff"]
 " TODO Redo this
 " Probably too dark to be useful
 " Really you only need like 5
+" Or do I need this at all? I should be fine with one lime green and one regular green...
 let s:green = {}
 let s:green.1             = [0, "#00340c"]
 let s:green.2             = [0, "#045514"]
@@ -159,32 +160,42 @@ let s:P.524               = [82, "#33ff00"]  " Lime Green
 let s:P.593               = [220, "#ffcc00"] " Light Amber
 let s:P.P3                = [214, "#ffb000"] " Amber (600nm)
 
+" Everything Else
+let s:other = {}
+let s:other.none         = ['NONE', 'NONE']
+
+
+    """"""""""""""""""""""""""""""""
+    "       Color assignments      "     
+    """"""""""""""""""""""""""""""""
+
 " Create groups   ( Group,        fg,               bg,              term )
-call s:CreateGroup('Normal',      s:green.e,   s:X11.black,  'NONE')
-call s:CreateGroup('Comment',     s:green.8,   s:X11.black,  'NONE')
+call s:CreateGroup('Normal',      s:P.524,   s:X11.black,  'NONE')
+call s:CreateGroup('Comment',     s:P.524,   s:X11.black,  'NONE')
 call s:CreateGroup('Constant',    s:X11.fuchsia,   s:X11.black,  'UNDERCURL')
 call s:CreateGroup('Conditional', s:X11.fuchsia,   s:X11.black,  'UNDERCURL')
-"Cursor
+" Cursor
+" Parens?
 call s:CreateGroup('Define',      s:X11.red,       s:X11.black,  'REVERSE')
 call s:CreateGroup('Error',       s:X11.red,       s:X11.black,  'REVERSE')
 call s:CreateGroup('Exception',   s:X11.red,       s:X11.black,  'REVERSE')
 call s:CreateGroup('Function',    s:P.P3,   s:X11.black,  'NONE')
 call s:CreateGroup('Ignore',      s:X11.white,     s:X11.red,    'NONE')
 call s:CreateGroup('Identifier',  s:X11.aqua,      s:X11.black,  'NONE')
-call s:CreateGroup('LineNr',      s:green.2,   s:X11.black,  'NONE')
-call s:CreateGroup('Number',      s:X11.gray,      s:X11.black,  'NONE')
+call s:CreateGroup('LineNr',      s:X11.gray,   s:X11.black,  'NONE')
+call s:CreateGroup('Number',      s:P.593,      s:X11.black,  'NONE')
 call s:CreateGroup('Operator',    s:P.593,       s:X11.black,  'NONE')
-call s:CreateGroup('PreProc',     s:X11.aqua,      s:X11.black,  'NONE')
+call s:CreateGroup('PreProc',     s:X11.red,      s:X11.black,  'NONE')
 call s:CreateGroup('Repeat',      s:X11.white,     s:X11.black,  'NONE')
-call s:CreateGroup('Special',     s:apple.gray1,   s:X11.black,  'NONE')
+call s:CreateGroup('Special',     s:X11.aqua,   s:X11.black,  'NONE')
 call s:CreateGroup('Statement',   s:P.P3,    s:X11.black,  'BOLD')
 call s:CreateGroup('String',      s:CGA.lmagenta,     s:X11.black,  'NONE')
 call s:CreateGroup('Todo',        s:X11.blue,      s:X11.yellow, 'STANDOUT')
-call s:CreateGroup('Type',        s:X11.white,     s:X11.black,  'UNDERLINE')
+call s:CreateGroup('Type',        s:P.P3,     s:X11.black,  'BOLD')
 
 " Diff
 
-" Link groups
+" Link groups   ( Subgroup,     Parent)
 call s:LinkGroup('WarningMsg', 'Error')
 
 """"""""""""""
