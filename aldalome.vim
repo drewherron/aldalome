@@ -11,15 +11,15 @@
 "             `""""'       `"""'      .8P
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" File:             aldalome.vim                           "
-" Author:           Drew Herron                            "
-" Email:            dherron@pdx.edu                        "
-" Source:           github.com/drewherron/aldalome         "
-" License:          MIT                                    "
-" Last Modified:    23FEB22                                "
+"" File:             aldalome.vim                         ""
+"" Author:           Drew Herron                          ""
+"" Email:            dherron@pdx.edu                      ""
+"" Source:           github.com/drewherron/aldalome       ""
+"" License:          MIT                                  ""
+"" Last Modified:    24FEB22                              ""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" Easy way to check the current colorscheme:
+" Easy way to check your current colorscheme:
 " :so $VIMRUNTIME/syntax/hitest.vim
 "
 " Init
@@ -149,7 +149,7 @@ let s:amber.7             = [0, ""]
 let s:amber.8             = [0, ""]
 let s:amber.9             = [0, ""]
 
-" Phosphors // Mostly for testing
+" Phosphors
 let s:P = {}
 let s:P.bg                = [235, "#262626"] " Dark gray
 let s:P.P1                = [10, "#33ff33"]  " Lime Green
@@ -159,10 +159,12 @@ let s:P.506               = [10, "#00ff33"]  " Lime Green
 let s:P.524               = [82, "#33ff00"]  " Lime Green
 let s:P.593               = [220, "#ffcc00"] " Light Amber
 let s:P.P3                = [214, "#ffb000"] " Amber (600nm)
+let s:P.white             = [15, "#f3f9f9"] " Barely blueish white
+let s:P.lblue             = [14, "#68f5f8"] " Blueish white
 
 " Everything Else
 let s:other = {}
-let s:other.none         = ['NONE', 'NONE']
+let s:other.none          = ['NONE', 'NONE']
 
 
     """"""""""""""""""""""""""""""""
@@ -170,30 +172,37 @@ let s:other.none         = ['NONE', 'NONE']
     """"""""""""""""""""""""""""""""
 
 " Create groups   ( Group,        fg,               bg,              term )
-call s:CreateGroup('Normal',      s:P.524,   s:X11.black,  'NONE')
-call s:CreateGroup('Comment',     s:P.524,   s:X11.black,  'NONE')
+call s:CreateGroup('Normal',      s:P.P1,   s:X11.black,  'NONE')
+call s:CreateGroup('Comment',     s:P.P1,   s:X11.black,  'NONE')
 call s:CreateGroup('Constant',    s:X11.fuchsia,   s:X11.black,  'UNDERCURL')
 call s:CreateGroup('Conditional', s:X11.fuchsia,   s:X11.black,  'UNDERCURL')
-" Cursor
+" CreateGroup
 " Parens?
+" CreateGroup
 call s:CreateGroup('Define',      s:X11.red,       s:X11.black,  'REVERSE')
 call s:CreateGroup('Error',       s:X11.red,       s:X11.black,  'REVERSE')
 call s:CreateGroup('Exception',   s:X11.red,       s:X11.black,  'REVERSE')
-call s:CreateGroup('Function',    s:P.P3,   s:X11.black,  'NONE')
+call s:CreateGroup('Function',    s:apple.orange,   s:X11.black,  'NONE')
 call s:CreateGroup('Ignore',      s:X11.white,     s:X11.red,    'NONE')
 call s:CreateGroup('Identifier',  s:X11.aqua,      s:X11.black,  'NONE')
 call s:CreateGroup('LineNr',      s:X11.gray,   s:X11.black,  'NONE')
-call s:CreateGroup('Number',      s:P.593,      s:X11.black,  'NONE')
-call s:CreateGroup('Operator',    s:P.593,       s:X11.black,  'NONE')
+call s:CreateGroup('Number',      s:P.lblue,      s:X11.black,  'NONE')
+call s:CreateGroup('Operator',    s:P.white,       s:X11.black,  'NONE')
 call s:CreateGroup('PreProc',     s:X11.red,      s:X11.black,  'NONE')
 call s:CreateGroup('Repeat',      s:X11.white,     s:X11.black,  'NONE')
 call s:CreateGroup('Special',     s:X11.aqua,   s:X11.black,  'NONE')
 call s:CreateGroup('Statement',   s:P.P3,    s:X11.black,  'BOLD')
-call s:CreateGroup('String',      s:CGA.lmagenta,     s:X11.black,  'NONE')
+call s:CreateGroup('String',      s:X11.fuchsia,     s:X11.black,  'NONE')
 call s:CreateGroup('Todo',        s:X11.blue,      s:X11.yellow, 'STANDOUT')
 call s:CreateGroup('Type',        s:P.P3,     s:X11.black,  'BOLD')
+call s:CreateGroup('Pmenu',       s:apple.lgreen,     s:apple.gray1,  'NONE')
+call s:CreateGroup('PmenuSel',    s:apple.black,     s:apple.lgreen,  'NONE')
 
 " Diff
+call s:CreateGroup('DiffAdd',     s:CGA.blue,    s:CGA.lgreen,  'NONE')
+call s:CreateGroup('DiffChange',     s:CGA.yellow,    s:CGA.blue,  'NONE')
+call s:CreateGroup('DiffDelete',  s:CGA.white,    s:CGA.red,  'NONE')
+call s:CreateGroup('DiffText',    s:CGA.white,    s:CGA.red,  'NONE')
 
 " Link groups   ( Subgroup,     Parent)
 call s:LinkGroup('WarningMsg', 'Error')
