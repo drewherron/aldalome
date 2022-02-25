@@ -188,8 +188,8 @@ call s:CreateGroup('Function',    s:P.P3,           s:CGA.black,  'NONE')
 call s:CreateGroup('Ignore',      s:CGA.white,      s:CGA.red,    'NONE')
 call s:CreateGroup('Identifier',  s:P.P3,           s:CGA.black,  'NONE')
 call s:CreateGroup('LineNr',      s:CGA.dgray,      s:CGA.black,  'NONE')
-call s:CreateGroup('Number',      s:CGA.lred,       s:CGA.black,  'NONE')
-call s:CreateGroup('Operator',    s:CGA.lcyan,      s:CGA.black,  'BOLD')
+call s:CreateGroup('Number',      s:CGA.lcyan,      s:CGA.black,  'NONE')
+"call s:CreateGroup('Operator',    s:CGA.yellow,      s:CGA.black,  'BOLD')
 call s:CreateGroup('PreProc',     s:CGA.red,        s:CGA.black,  'NONE')
 call s:CreateGroup('Repeat',      s:P.P3,           s:CGA.black,  'NONE')
 call s:CreateGroup('Special',     s:CGA.lblue,      s:CGA.black,  'NONE')
@@ -210,6 +210,7 @@ call s:CreateGroup('DiffDelete',  s:CGA.white,      s:CGA.red,    'NONE')
 call s:CreateGroup('DiffText',    s:CGA.white,      s:CGA.red,    'NONE')
 
 " Link groups   ( Subgroup,     Parent)
+call s:LinkGroup('Operator',   'Normal')
 call s:LinkGroup('WarningMsg', 'Error')
 
 """"""""""""""
