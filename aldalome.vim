@@ -16,6 +16,7 @@
 "" Email:            dherron@pdx.edu                      ""
 "" Source:           github.com/drewherron/aldalome       ""
 "" License:          MIT                                  ""
+"" Created:          22FEB22                              ""
 "" Last Modified:    24FEB22                              ""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -113,6 +114,10 @@ let s:apple.yellow        = [11, "#ffff00"]
 let s:apple.aqua          = [49, "#44ff99"]
 let s:apple.white         = [15, "#ffffff"]
 
+" Apple II palette
+let s:custom = {}
+let s:custom.black         = [0, "#000000"]
+
 " Shades of monochromatic phosphor green
 " 1=darkest    f=lightest 
 " TODO Redo this
@@ -172,37 +177,37 @@ let s:other.none          = ['NONE', 'NONE']
     """"""""""""""""""""""""""""""""
 
 " Create groups   ( Group,        fg,               bg,              term )
-call s:CreateGroup('Normal',      s:P.P1,   s:X11.black,  'NONE')
-call s:CreateGroup('Comment',     s:P.P1,   s:X11.black,  'NONE')
-call s:CreateGroup('Constant',    s:X11.fuchsia,   s:X11.black,  'UNDERCURL')
-call s:CreateGroup('Conditional', s:X11.fuchsia,   s:X11.black,  'UNDERCURL')
-" CreateGroup
-" Parens?
-" CreateGroup
-call s:CreateGroup('Define',      s:X11.red,       s:X11.black,  'REVERSE')
-call s:CreateGroup('Error',       s:X11.red,       s:X11.black,  'REVERSE')
-call s:CreateGroup('Exception',   s:X11.red,       s:X11.black,  'REVERSE')
-call s:CreateGroup('Function',    s:apple.orange,   s:X11.black,  'NONE')
-call s:CreateGroup('Ignore',      s:X11.white,     s:X11.red,    'NONE')
-call s:CreateGroup('Identifier',  s:X11.aqua,      s:X11.black,  'NONE')
-call s:CreateGroup('LineNr',      s:X11.gray,   s:X11.black,  'NONE')
-call s:CreateGroup('Number',      s:P.lblue,      s:X11.black,  'NONE')
-call s:CreateGroup('Operator',    s:P.white,       s:X11.black,  'NONE')
-call s:CreateGroup('PreProc',     s:X11.red,      s:X11.black,  'NONE')
-call s:CreateGroup('Repeat',      s:X11.white,     s:X11.black,  'NONE')
-call s:CreateGroup('Special',     s:X11.aqua,   s:X11.black,  'NONE')
-call s:CreateGroup('Statement',   s:P.P3,    s:X11.black,  'BOLD')
-call s:CreateGroup('String',      s:X11.fuchsia,     s:X11.black,  'NONE')
-call s:CreateGroup('Todo',        s:X11.blue,      s:X11.yellow, 'STANDOUT')
-call s:CreateGroup('Type',        s:P.P3,     s:X11.black,  'BOLD')
-call s:CreateGroup('Pmenu',       s:apple.lgreen,     s:apple.gray1,  'NONE')
-call s:CreateGroup('PmenuSel',    s:apple.black,     s:apple.lgreen,  'NONE')
+call s:CreateGroup('Normal',      s:P.P1,           s:CGA.black,  'NONE')
+call s:CreateGroup('Comment',     s:CGA.green,      s:CGA.black,  'NONE')
+call s:CreateGroup('Constant',    s:CGA.lcyan,      s:CGA.black,  'UNDERCURL')
+call s:CreateGroup('Conditional', s:P.P3,           s:CGA.black,  'UNDERCURL')
+call s:CreateGroup('Define',      s:CGA.red,        s:CGA.black,  'REVERSE')
+call s:CreateGroup('Error',       s:CGA.red,        s:CGA.black,  'REVERSE')
+call s:CreateGroup('Exception',   s:CGA.red,        s:CGA.black,  'REVERSE')
+call s:CreateGroup('Function',    s:P.P3,           s:CGA.black,  'NONE')
+call s:CreateGroup('Ignore',      s:CGA.white,      s:CGA.red,    'NONE')
+call s:CreateGroup('Identifier',  s:P.P3,           s:CGA.black,  'NONE')
+call s:CreateGroup('LineNr',      s:CGA.dgray,      s:CGA.black,  'NONE')
+call s:CreateGroup('Number',      s:CGA.lred,       s:CGA.black,  'NONE')
+call s:CreateGroup('Operator',    s:CGA.lcyan,      s:CGA.black,  'BOLD')
+call s:CreateGroup('PreProc',     s:CGA.red,        s:CGA.black,  'NONE')
+call s:CreateGroup('Repeat',      s:P.P3,           s:CGA.black,  'NONE')
+call s:CreateGroup('Special',     s:CGA.lblue,      s:CGA.black,  'NONE')
+call s:CreateGroup('Statement',   s:P.P3,           s:CGA.black,  'BOLD')
+call s:CreateGroup('String',      s:CGA.lmagenta,   s:CGA.black,  'NONE')
+call s:CreateGroup('Todo',        s:CGA.blue,       s:CGA.yellow, 'STANDOUT')
+call s:CreateGroup('Type',        s:P.P3,           s:CGA.black,  'BOLD')
+call s:CreateGroup('vimParenSep', s:CGA.lcyan,      s:CGA.black,  'NONE')
+call s:CreateGroup('vimSep',      s:CGA.lcyan,      s:CGA.black,  'NONE')
+
+call s:CreateGroup('Pmenu',       s:CGA.lgreen,     s:CGA.dgray,  'NONE')
+call s:CreateGroup('PmenuSel',    s:CGA.black,      s:P.P1,       'NONE')
 
 " Diff
-call s:CreateGroup('DiffAdd',     s:CGA.blue,    s:CGA.lgreen,  'NONE')
-call s:CreateGroup('DiffChange',     s:CGA.yellow,    s:CGA.blue,  'NONE')
-call s:CreateGroup('DiffDelete',  s:CGA.white,    s:CGA.red,  'NONE')
-call s:CreateGroup('DiffText',    s:CGA.white,    s:CGA.red,  'NONE')
+call s:CreateGroup('DiffAdd',     s:CGA.blue,       s:CGA.lgreen, 'NONE')
+call s:CreateGroup('DiffChange',  s:CGA.yellow,     s:CGA.blue,   'NONE')
+call s:CreateGroup('DiffDelete',  s:CGA.white,      s:CGA.red,    'NONE')
+call s:CreateGroup('DiffText',    s:CGA.white,      s:CGA.red,    'NONE')
 
 " Link groups   ( Subgroup,     Parent)
 call s:LinkGroup('WarningMsg', 'Error')
