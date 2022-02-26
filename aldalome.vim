@@ -57,6 +57,25 @@ endfunction
     "       Color definitions      "     
     """"""""""""""""""""""""""""""""
 
+" CGA RGBI Palette
+let s:CGA = {}
+let s:CGA.black           = [0, "#000000"]
+let s:CGA.blue            = [19, "#0000aa"]
+let s:CGA.green           = [34, "#00aa00"]
+let s:CGA.cyan            = [37, "#00aaaa"]
+let s:CGA.red             = [124, "#aa0000"]
+let s:CGA.magenta         = [127, "#aa00aa"]
+let s:CGA.brown           = [130, "#aa5500"]
+let s:CGA.lgray           = [248, "#aaaaaa"]
+let s:CGA.dgray           = [240, "#555555"]
+let s:CGA.lblue           = [63, "#5555ff"]
+let s:CGA.lgreen          = [83, "#55ff55"]
+let s:CGA.lcyan           = [87, "#55ffff"]
+let s:CGA.lred            = [203, "#ff5555"]
+let s:CGA.lmagenta        = [206, "#ff55ff"]
+let s:CGA.yellow          = [227, "#ffff55"]
+let s:CGA.white           = [15, "#ffffff"]
+
 " X11 Palette
 let s:X11 = {}
 let s:X11.black           = [0, "#000000"]
@@ -75,25 +94,6 @@ let s:X11.blue            = [12, "#0000ff"]
 let s:X11.fuchsia         = [13, "#ff00ff"]
 let s:X11.aqua            = [14, "#00ffff"]
 let s:X11.white           = [15, "#ffffff"]
-
-" CGA Palette
-let s:CGA = {}
-let s:CGA.black           = [0, "#000000"]
-let s:CGA.blue            = [19, "#0000aa"]
-let s:CGA.green           = [34, "#00aa00"]
-let s:CGA.cyan            = [37, "#00aaaa"]
-let s:CGA.red             = [124, "#aa0000"]
-let s:CGA.magenta         = [127, "#aa00aa"]
-let s:CGA.brown           = [130, "#aa5500"]
-let s:CGA.lgray           = [248, "#aaaaaa"]
-let s:CGA.dgray           = [240, "#555555"]
-let s:CGA.lblue           = [63, "#5555ff"]
-let s:CGA.lgreen          = [83, "#55ff55"]
-let s:CGA.lcyan           = [87, "#55ffff"]
-let s:CGA.lred            = [203, "#ff5555"]
-let s:CGA.lmagenta        = [206, "#ff55ff"]
-let s:CGA.yellow          = [227, "#ffff55"]
-let s:CGA.white           = [15, "#ffffff"]
 
 " Apple II palette
 let s:apple = {}
@@ -166,6 +166,7 @@ let s:P.593               = [220, "#ffcc00"] " Light Amber
 let s:P.P3                = [214, "#ffb000"] " Amber (600nm)
 let s:P.white             = [15, "#f3f9f9"] " Barely blueish white
 let s:P.lblue             = [14, "#68f5f8"] " Blueish white
+let s:P.P1a               = [14, "#25e481"] " P1alt
 
 " Everything Else
 let s:other = {}
@@ -176,42 +177,51 @@ let s:other.none          = ['NONE', 'NONE']
     "       Color assignments      "     
     """"""""""""""""""""""""""""""""
 
-" Create groups   ( Group,        fg,               bg,              term )
-call s:CreateGroup('Normal',      s:P.P1,           s:CGA.black,  'NONE')
-call s:CreateGroup('Comment',     s:CGA.green,      s:CGA.black,  'NONE')
-call s:CreateGroup('Constant',    s:CGA.lcyan,      s:CGA.black,  'UNDERCURL')
-call s:CreateGroup('Conditional', s:P.P3,           s:CGA.black,  'UNDERCURL')
-call s:CreateGroup('Define',      s:CGA.red,        s:CGA.black,  'REVERSE')
-call s:CreateGroup('Error',       s:CGA.red,        s:CGA.black,  'REVERSE')
-call s:CreateGroup('Exception',   s:CGA.red,        s:CGA.black,  'REVERSE')
-call s:CreateGroup('Function',    s:P.P3,           s:CGA.black,  'NONE')
-call s:CreateGroup('Ignore',      s:CGA.white,      s:CGA.red,    'NONE')
-call s:CreateGroup('Identifier',  s:P.P3,           s:CGA.black,  'NONE')
-call s:CreateGroup('LineNr',      s:CGA.dgray,      s:CGA.black,  'NONE')
-call s:CreateGroup('Number',      s:CGA.lcyan,      s:CGA.black,  'NONE')
-"call s:CreateGroup('Operator',    s:CGA.yellow,      s:CGA.black,  'BOLD')
-call s:CreateGroup('PreProc',     s:CGA.red,        s:CGA.black,  'NONE')
-call s:CreateGroup('Repeat',      s:P.P3,           s:CGA.black,  'NONE')
-call s:CreateGroup('Special',     s:CGA.lblue,      s:CGA.black,  'NONE')
-call s:CreateGroup('Statement',   s:P.P3,           s:CGA.black,  'BOLD')
-call s:CreateGroup('String',      s:CGA.lmagenta,   s:CGA.black,  'NONE')
-call s:CreateGroup('Todo',        s:CGA.blue,       s:CGA.yellow, 'STANDOUT')
-call s:CreateGroup('Type',        s:P.P3,           s:CGA.black,  'BOLD')
-call s:CreateGroup('vimParenSep', s:CGA.lcyan,      s:CGA.black,  'NONE')
-call s:CreateGroup('vimSep',      s:CGA.lcyan,      s:CGA.black,  'NONE')
+" Create groups   ( Group,            fg,               bg,              term )
+call s:CreateGroup('Normal',          s:P.P1,           s:CGA.black,  'NONE')
+call s:CreateGroup('Comment',         s:CGA.lgray,      s:CGA.black,  'NONE')
+call s:CreateGroup('Constant',        s:CGA.lcyan,      s:CGA.black,  'UNDERCURL')
+call s:CreateGroup('Conditional',     s:P.P3,           s:CGA.black,  'UNDERCURL')
+call s:CreateGroup('Define',          s:CGA.lred,        s:CGA.black,  'REVERSE')
+call s:CreateGroup('Error',           s:CGA.red,        s:CGA.black,  'REVERSE')
+call s:CreateGroup('Exception',       s:CGA.red,        s:CGA.black,  'REVERSE')
+call s:CreateGroup('Function',        s:P.P3,           s:CGA.black,  'NONE')
+call s:CreateGroup('Ignore',          s:CGA.white,      s:CGA.red,    'NONE')
+call s:CreateGroup('Identifier',      s:P.P3,           s:CGA.black,  'NONE')
+call s:CreateGroup('LineNr',          s:CGA.dgray,      s:CGA.black,  'NONE')
+call s:CreateGroup('Number',          s:CGA.lcyan,      s:CGA.black,  'NONE')
+"call s:CreateGroup('Operator',        s:CGA.yellow,     s:CGA.black,  'BOLD')
+call s:CreateGroup('PreProc',         s:CGA.lred,        s:CGA.black,  'NONE')
+call s:CreateGroup('Repeat',          s:P.P3,           s:CGA.black,  'NONE')
+call s:CreateGroup('Special',         s:CGA.lblue,      s:CGA.black,  'NONE')
+call s:CreateGroup('Statement',       s:P.P3,           s:CGA.black,  'BOLD')
+call s:CreateGroup('String',          s:CGA.lmagenta,   s:CGA.black,  'NONE')
+call s:CreateGroup('Todo',            s:CGA.blue,       s:CGA.yellow, 'STANDOUT')
+call s:CreateGroup('Type',            s:P.P3,           s:CGA.black,  'BOLD')
+call s:CreateGroup('vimParenSep',     s:CGA.lcyan,      s:CGA.black,  'NONE')
+call s:CreateGroup('vimSep',          s:CGA.lcyan,      s:CGA.black,  'NONE')
 
-call s:CreateGroup('Pmenu',       s:CGA.lgreen,     s:CGA.dgray,  'NONE')
-call s:CreateGroup('PmenuSel',    s:CGA.black,      s:P.P1,       'NONE')
+call s:CreateGroup('Pmenu',           s:CGA.lgreen,     s:CGA.dgray,  'NONE')
+call s:CreateGroup('PmenuSel',        s:CGA.black,      s:P.P1,       'NONE')
+
+" Borders
+call s:CreateGroup('FoldColumn',      s:CGA.black,           s:CGA.black,  'NONE')
+call s:CreateGroup('SignColumn',      s:CGA.green,           s:CGA.black,  'NONE')
+call s:CreateGroup('StatusLine',      s:CGA.green,           s:CGA.black,  'BOLD')
+call s:CreateGroup('StatusLineNC',    s:CGA.green,           s:CGA.black,  'BOLD')
+call s:CreateGroup('VertSplit',       s:CGA.green,           s:CGA.black,  'NONE')
 
 " Diff
-call s:CreateGroup('DiffAdd',     s:CGA.blue,       s:CGA.lgreen, 'NONE')
-call s:CreateGroup('DiffChange',  s:CGA.yellow,     s:CGA.blue,   'NONE')
-call s:CreateGroup('DiffDelete',  s:CGA.white,      s:CGA.red,    'NONE')
-call s:CreateGroup('DiffText',    s:CGA.white,      s:CGA.red,    'NONE')
+call s:CreateGroup('DiffAdd',         s:CGA.blue,       s:CGA.lgreen, 'NONE')
+call s:CreateGroup('DiffChange',      s:CGA.yellow,     s:CGA.blue,   'NONE')
+call s:CreateGroup('DiffDelete',      s:CGA.white,      s:CGA.red,    'NONE')
+call s:CreateGroup('DiffText',        s:CGA.white,      s:CGA.red,    'NONE')
 
 " Link groups   ( Subgroup,     Parent)
 call s:LinkGroup('Operator',   'Normal')
 call s:LinkGroup('WarningMsg', 'Error')
+call s:LinkGroup('vimCommentString',   'Comment')
+call s:LinkGroup('vimCommentTitle',   'Comment')
 
 """"""""""""""
 "   Python   "
