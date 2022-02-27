@@ -212,7 +212,7 @@ call s:CreateGroup('StatusLineNC',    s:CGA.green,           s:CGA.black,  'BOLD
 call s:CreateGroup('VertSplit',       s:CGA.green,           s:CGA.black,  'NONE')
 
 " Diff
-call s:CreateGroup('DiffAdd',         s:CGA.blue,       s:CGA.lgreen, 'NONE')
+call s:CreateGroup('DiffAdd',         s:CGA.black,       s:CGA.green, 'NONE')
 call s:CreateGroup('DiffChange',      s:CGA.yellow,     s:CGA.blue,   'NONE')
 call s:CreateGroup('DiffDelete',      s:CGA.white,      s:CGA.red,    'NONE')
 call s:CreateGroup('DiffText',        s:CGA.white,      s:CGA.red,    'NONE')
