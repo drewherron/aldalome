@@ -114,59 +114,25 @@ let s:apple.yellow        = [11, "#ffff00"]
 let s:apple.aqua          = [49, "#44ff99"]
 let s:apple.white         = [15, "#ffffff"]
 
-" Apple II palette
-let s:custom = {}
-let s:custom.black         = [0, "#000000"]
-
-" Shades of monochromatic phosphor green
-" 1=darkest    f=lightest 
-" TODO Redo this
-" Probably too dark to be useful
-" Really you only need like 5
-" Or do I need this at all? I should be fine with one lime green and one regular green...
-let s:green = {}
-let s:green.1             = [0, "#00340c"]
-let s:green.2             = [0, "#045514"]
-let s:green.3             = [0, "#045d14"]
-let s:green.4             = [0, "#048620"]
-let s:green.5             = [0, "#049220"]
-let s:green.6             = [0, "#08ba2c"]
-let s:green.7             = [0, "#08c72c"]
-let s:green.8             = [0, "#048a20"]
-let s:green.9             = [0, "#08a224"]
-let s:green.a             = [0, "#08c32c"]
-let s:green.b             = [0, "#08cb30"]
-let s:green.c             = [0, "#0be734"]
-let s:green.d             = [0, "#0bef38"]
-let s:green.e             = [0, "#24ff51"]
-let s:green.f             = [0, "#b5ffc3"]
-
-" TODO Shades of monochromatic phosphor amber
-" 1=darkest    f=lightest 
-let s:amber = {}
-let s:amber.1             = [0, ""]
-let s:amber.2             = [0, ""]
-let s:amber.3             = [0, ""]
-let s:amber.4             = [0, ""]
-let s:amber.5             = [0, ""]
-let s:amber.6             = [0, ""]
-let s:amber.7             = [0, ""]
-let s:amber.8             = [0, ""]
-let s:amber.9             = [0, ""]
-
 " Phosphors
-let s:P = {}
-let s:P.bg                = [235, "#262626"] " Dark gray
-let s:P.P1                = [10, "#33ff33"]  " Lime Green
-let s:P.P24               = [83, "#66ff66"]  " Pale Green
-let s:P.502               = [84, "#00ff66"]  " Pale Green
-let s:P.506               = [10, "#00ff33"]  " Lime Green
-let s:P.524               = [82, "#33ff00"]  " Lime Green
-let s:P.593               = [220, "#ffcc00"] " Light Amber
-let s:P.P3                = [214, "#ffb000"] " Amber (600nm)
-let s:P.white             = [15, "#f3f9f9"] " Barely blueish white
-let s:P.lblue             = [14, "#68f5f8"] " Blueish white
-let s:P.P1a               = [14, "#25e481"] " P1alt
+" P1
+let s:P1 = {}
+let s:P1.P1                = [10, "#33ff33"]  " Lime Green
+let s:P1.502               = [84, "#00ff66"]  " Pale Green
+let s:P1.506               = [10, "#00ff33"]  " Lime Green
+let s:P1.524               = [82, "#33ff00"]  " Lime Green
+let s:P1.P1a               = [14, "#25e481"] " P1alt
+let s:P1.P24               = [83, "#66ff66"]  " Pale Green
+
+" P3
+let s:P3 = {}
+let s:P3.593               = [220, "#ffcc00"] " Light Amber
+let s:P3.600                = [214, "#ffb000"] " Amber (600nm)
+
+" P4
+let s:P4 = {}
+let s:P4.white             = [15, "#f3f9f9"] " Barely blueish white
+let s:P4.lblue             = [14, "#68f5f8"] " Blueish white
 
 " Everything Else
 let s:other = {}
