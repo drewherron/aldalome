@@ -115,24 +115,61 @@ let s:apple.aqua          = [49, "#44ff99"]
 let s:apple.white         = [15, "#ffffff"]
 
 " Phosphors
-" P1
+" Numbers correspond to brightness/intensity on a monochrome monitor
+" Higher number is lighter
+
+" P1 - 525nm
+" TODO fix term numbers
 let s:P1 = {}
-let s:P1.P1                = [10, "#33ff33"]  " Lime Green
-let s:P1.502               = [84, "#00ff66"]  " Pale Green
-let s:P1.506               = [10, "#00ff33"]  " Lime Green
-let s:P1.524               = [82, "#33ff00"]  " Lime Green
-let s:P1.P1a               = [14, "#25e481"] " P1alt
-let s:P1.P24               = [83, "#66ff66"]  " Pale Green
+let s:P1.0     = [10, "#2c9900"]
+let s:P1.1     = [10, "#34b300"]
+let s:P1.2     = [10, "#3bcc00"]
+let s:P1.3     = [10, "#43e600"]
+let s:P1.4     = [10, "#4aff00"] "peak
+let s:P1.5     = [10, "#5cff1a"]
+let s:P1.6     = [10, "#6eff33"]
+let s:P1.7     = [10, "#80ff4d"]
+let s:P1.8     = [10, "#a4ff7f"]
+let s:P1.9     = [10, "#c8ffb2"]
+"let s:P1.502    = [84, "#00ff66"]  " Pale Green
+"let s:P1.506    = [10, "#00ff33"]  " Lime Green
+"let s:P1.524    = [82, "#33ff00"]  " Lime Green
+"let s:P1.P1a    = [14, "#25e481"] " P1alt
+"let s:P1.P24    = [83, "#66ff66"]  " Pale Green
 
-" P3
+" P3 - 602nm
+" TODO fix term numbers
 let s:P3 = {}
-let s:P3.593               = [220, "#ffcc00"] " Light Amber
-let s:P3.600                = [214, "#ffb000"] " Amber (600nm)
+let s:P3.0     = [208, "#996d00"]
+let s:P3.1     = [208, "#b38000"]
+let s:P3.2     = [208, "#cc9200"]
+let s:P3.3     = [208, "#e6a500"]
+let s:P3.4     = [208, "#ffb700"] "peak
+let s:P3.5     = [208, "#ffbe1a"]
+let s:P3.6     = [208, "#ffc533"]
+let s:P3.7     = [208, "#ffcd4d"]
+let s:P3.8     = [208, "#ffd366"]
+let s:P3.9     = [208, "#ffe299"]
+"let s:P3.P12  = [220, "#ffdf00"]
 
-" P4
-let s:P4 = {}
-let s:P4.white             = [15, "#f3f9f9"] " Barely blueish white
-let s:P4.lblue             = [14, "#68f5f8"] " Blueish white
+" P5 - 430nm
+" TODO fix term numbers
+let s:P5 = {}
+let s:P5.0     = [12, "#240099"]
+let s:P5.1     = [12, "#2b00b3"]
+let s:P5.2     = [12, "#3100cc"]
+let s:P5.3     = [12, "#3700e6"]
+let s:P5.4     = [12, "#3d00ff"] "peak
+let s:P5.5     = [12, "#501aff"]
+let s:P5.6     = [12, "#6433ff"]
+let s:P5.7     = [12, "#8a67ff"]
+let s:P5.8     = [12, "#9e7fff"]
+let s:P5.9     = [12, "#b19aff"]
+let s:P5.a     = [12, "#c5b4ff"]
+let s:P5.b     = [12, "#d8cdff"]
+let s:P5.c     = [12, "#dfd6ff"]
+let s:P5.d     = [12, "#e7e0ff"]
+let s:P5.e     = [12, "#efeaff"]
 
 " Everything Else
 let s:other = {}
@@ -144,31 +181,31 @@ let s:other.none          = ['NONE', 'NONE']
     """"""""""""""""""""""""""""""""
 
 " Create groups   ( Group,            fg,               bg,              term )
-call s:CreateGroup('Normal',          s:P.P1,           s:CGA.black,  'NONE')
+call s:CreateGroup('Normal',          s:P1.4,           s:CGA.black,  'NONE')
 call s:CreateGroup('Comment',         s:CGA.lgray,      s:CGA.black,  'NONE')
 call s:CreateGroup('Constant',        s:CGA.lcyan,      s:CGA.black,  'UNDERCURL')
-call s:CreateGroup('Conditional',     s:P.P3,           s:CGA.black,  'UNDERCURL')
+call s:CreateGroup('Conditional',     s:P3.4,           s:CGA.black,  'UNDERCURL')
 call s:CreateGroup('Define',          s:CGA.lred,        s:CGA.black,  'REVERSE')
 call s:CreateGroup('Error',           s:CGA.red,        s:CGA.black,  'REVERSE')
 call s:CreateGroup('Exception',       s:CGA.red,        s:CGA.black,  'REVERSE')
-call s:CreateGroup('Function',        s:P.P3,           s:CGA.black,  'NONE')
+call s:CreateGroup('Function',        s:P3.4,           s:CGA.black,  'NONE')
 call s:CreateGroup('Ignore',          s:CGA.white,      s:CGA.red,    'NONE')
-call s:CreateGroup('Identifier',      s:P.P3,           s:CGA.black,  'NONE')
+call s:CreateGroup('Identifier',      s:P3.4,           s:CGA.black,  'NONE')
 call s:CreateGroup('LineNr',          s:CGA.dgray,      s:CGA.black,  'NONE')
-call s:CreateGroup('Number',          s:CGA.lcyan,      s:CGA.black,  'NONE')
+call s:CreateGroup('Number',          s:P5.9,      s:CGA.black,  'NONE')
 "call s:CreateGroup('Operator',        s:CGA.yellow,     s:CGA.black,  'BOLD')
 call s:CreateGroup('PreProc',         s:CGA.lred,        s:CGA.black,  'NONE')
-call s:CreateGroup('Repeat',          s:P.P3,           s:CGA.black,  'NONE')
+call s:CreateGroup('Repeat',          s:P3.4,           s:CGA.black,  'NONE')
 call s:CreateGroup('Special',         s:CGA.lblue,      s:CGA.black,  'NONE')
-call s:CreateGroup('Statement',       s:P.P3,           s:CGA.black,  'BOLD')
+call s:CreateGroup('Statement',       s:P3.4,           s:CGA.black,  'BOLD')
 call s:CreateGroup('String',          s:CGA.lmagenta,   s:CGA.black,  'NONE')
 call s:CreateGroup('Todo',            s:CGA.blue,       s:CGA.yellow, 'STANDOUT')
-call s:CreateGroup('Type',            s:P.P3,           s:CGA.black,  'BOLD')
+call s:CreateGroup('Type',            s:P3.4,           s:CGA.black,  'BOLD')
 call s:CreateGroup('vimParenSep',     s:CGA.lcyan,      s:CGA.black,  'NONE')
 call s:CreateGroup('vimSep',          s:CGA.lcyan,      s:CGA.black,  'NONE')
 
 call s:CreateGroup('Pmenu',           s:CGA.lgreen,     s:CGA.dgray,  'NONE')
-call s:CreateGroup('PmenuSel',        s:CGA.black,      s:P.P1,       'NONE')
+call s:CreateGroup('PmenuSel',        s:CGA.black,      s:P1.4,       'NONE')
 
 " Borders
 call s:CreateGroup('FoldColumn',      s:CGA.black,           s:CGA.black,  'NONE')
