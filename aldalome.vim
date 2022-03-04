@@ -131,11 +131,6 @@ let s:P1.6     = [10, "#6eff33"]
 let s:P1.7     = [10, "#80ff4d"]
 let s:P1.8     = [10, "#a4ff7f"]
 let s:P1.9     = [10, "#c8ffb2"]
-"let s:P1.502    = [84, "#00ff66"]  " Pale Green
-"let s:P1.506    = [10, "#00ff33"]  " Lime Green
-"let s:P1.524    = [82, "#33ff00"]  " Lime Green
-"let s:P1.P1a    = [14, "#25e481"] " P1alt
-"let s:P1.P24    = [83, "#66ff66"]  " Pale Green
 
 " P3 - 602nm
 " TODO fix term numbers
@@ -150,7 +145,6 @@ let s:P3.6     = [208, "#ffc533"]
 let s:P3.7     = [208, "#ffcd4d"]
 let s:P3.8     = [208, "#ffd366"]
 let s:P3.9     = [208, "#ffe299"]
-"let s:P3.P12  = [220, "#ffdf00"]
 
 " P5 - 430nm
 " TODO fix term numbers
@@ -173,7 +167,13 @@ let s:P5.e     = [12, "#efeaff"]
 
 " Everything Else
 let s:other = {}
-let s:other.none          = ['NONE', 'NONE']
+let s:other.P12    = [220, "#ffdf00"]
+let s:other.502    = [84, "#00ff66"]
+let s:other.506    = [10, "#00ff33"]
+let s:other.524    = [82, "#33ff00"]
+let s:other.P1a    = [14, "#25e481"]
+let s:other.P24    = [83, "#66ff66"]
+let s:other.none   = ['NONE', 'NONE']
 
 
     """"""""""""""""""""""""""""""""
@@ -181,9 +181,9 @@ let s:other.none          = ['NONE', 'NONE']
     """"""""""""""""""""""""""""""""
 
 " Create groups   ( Group,            fg,               bg,              term )
-call s:CreateGroup('Normal',          s:P1.2,           s:CGA.black,  'NONE')
+call s:CreateGroup('Normal',          s:P1.3,           s:CGA.black,  'NONE')
 call s:CreateGroup('Comment',         s:CGA.lgray,      s:CGA.black,  'NONE')
-call s:CreateGroup('Constant',        s:CGA.lcyan,      s:CGA.black,  'UNDERCURL')
+call s:CreateGroup('Constant',        s:P1.3,      s:CGA.black,  'NONE')
 call s:CreateGroup('Conditional',     s:P3.4,           s:CGA.black,  'UNDERCURL')
 call s:CreateGroup('Define',          s:CGA.lred,       s:CGA.black,  'REVERSE')
 call s:CreateGroup('Error',           s:CGA.red,        s:CGA.black,  'REVERSE')
@@ -194,7 +194,7 @@ call s:CreateGroup('Identifier',      s:P3.4,           s:CGA.black,  'NONE')
 call s:CreateGroup('LineNr',          s:CGA.dgray,      s:CGA.black,  'NONE')
 call s:CreateGroup('Number',          s:P5.6,           s:CGA.black,  'NONE')
 "call s:CreateGroup('Operator',        s:CGA.yellow,     s:CGA.black,  'BOLD')
-call s:CreateGroup('PreProc',         s:CGA.lred,       s:CGA.black,  'NONE')
+call s:CreateGroup('PreProc',         s:CGA.lcyan,       s:CGA.black,  'NONE')
 call s:CreateGroup('Repeat',          s:P3.4,           s:CGA.black,  'NONE')
 call s:CreateGroup('Special',         s:P5.4,           s:CGA.black,  'NONE')
 call s:CreateGroup('Statement',       s:P3.4,           s:CGA.black,  'BOLD')
