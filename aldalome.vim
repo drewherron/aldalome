@@ -17,7 +17,7 @@
 "" Source:           github.com/drewherron/aldalome       ""
 "" License:          MIT                                  ""
 "" Created:          22FEB22                              ""
-"" Last Modified:    24FEB22                              ""
+"" Last Modified:    21AUG22                              ""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " Easy way to check your current colorscheme:
@@ -187,6 +187,7 @@ call s:CreateGroup('Constant',        s:P1.3,      s:CGA.black,  'NONE')
 call s:CreateGroup('Conditional',     s:P3.4,           s:CGA.black,  'UNDERCURL')
 call s:CreateGroup('Define',          s:CGA.lred,       s:CGA.black,  'REVERSE')
 call s:CreateGroup('Error',           s:CGA.red,        s:CGA.black,  'REVERSE')
+call s:CreateGroup('SpellBad',        s:CGA.red,        s:CGA.white,  'REVERSE')
 call s:CreateGroup('Exception',       s:CGA.red,        s:CGA.black,  'REVERSE')
 call s:CreateGroup('Function',        s:P3.4,           s:CGA.black,  'NONE')
 call s:CreateGroup('Ignore',          s:CGA.white,      s:CGA.red,    'NONE')
