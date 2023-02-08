@@ -11,7 +11,7 @@
 ;             `""""'       `"""'      .8P
 ;
 ;;========================================================;;
-;; File:             aldalome.vim                         ;;
+;; File:             aldalome-theme.el                    ;;
 ;; Author:           Drew Herron                          ;;
 ;; Email:            dherron@pdx.edu                      ;;
 ;; Source:           github.com/drewherron/aldalome       ;;
@@ -28,7 +28,7 @@
   :link '(url-link :tag "GitHub" "http://github.com/drewherron/aldalome")
   :tag "Aldalome theme")
 
-;;; Color Palette
+;; Color Palette
 
 (defvar aldalome-colors-alist
   '(("alda-bg"       . "#000000")
@@ -45,34 +45,34 @@
   "List of colors.")
 
 (defmacro aldalome-with-color-variables (&rest body)
-  "`let' bind all colors defined in `aldalome-colors-alist' around BODY.
-Also bind `class' to ((class color) (min-colors 89))."
-  (declare (indent 0))
-  `(let ((class '((class color) (min-colors 89)))
-         ,@(mapcar (lambda (cons)
-                     (list (intern (car cons)) (cdr cons)))
-                   aldalome-colors-alist))
-     ,@body))
+    "`let' bind all colors defined in `aldalome-colors-alist' around BODY.
+    Also bind `class' to ((class color) (min-colors 89))."
+    (declare (indent 0))
+    `(let ((class '((class color) (min-colors 89)))
+           ,@(mapcar (lambda (cons)
+                       (list (intern (car cons)) (cdr cons)))
+                     aldalome-colors-alist))
+       ,@body))
 
-;;; Theme Faces
+;; Theme Faces
 (aldalome-with-color-variables
   (custom-theme-set-faces
    'aldalome
-;;; Colors
+;; Colors
    '(button ((t (:underline t))))
    `(default ((t (:foreground ,alda-fg :background ,alda-bg))))
    `(cursor ((t (:foreground ,alda-fg :background ,alda-fg))))
-   `(highlight ((t (:background ,alda-bg))))
+   `(highlight ((t (:background ,alda-dgray))))
    `(link ((t (:foreground ,alda-cyan :underline t :weight bold))))
    `(link-visited ((t (:foreground ,alda-magenta :underline t :weight normal))))
    `(fringe ((t (:foreground ,alda-fg :background ,alda-bg))))
    `(success ((t (:foreground ,alda-blue :weight bold))))
    `(tooltip ((t (:foreground ,alda-fg :background ,alda-bg))))
    `(tty-menu-enabled-face ((t (:foreground ,alda-fg :background ,alda-bg))))
-   `(tty-menu-disabled-face ((t (:foreground ,alda-lgray :background ,alda-bg))))
+   `(tty-menu-disabled-face ((t (:foreground ,alda-dgray :background ,alda-bg))))
    `(tty-menu-selected-face ((t (:foreground ,alda-bg :background ,alda-fg))))
    `(warning ((t (:foreground ,alda-red :weight bold))))
-   `(region ((,class (:background ,alda-bg :extend t))
+   `(region ((,class (:background ,alda-dgray :extend t))
              (t :inverse-video t)))
    `(escape-glyph ((t (:foreground ,alda-amber :weight bold))))
    `(widget-field ((t (:foreground ,alda-fg :background ,alda-bg))))
@@ -106,10 +106,24 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(font-lock-variable-name-face ((t (:foreground ,alda-amber))))
    `(font-lock-warning-face ((t (:foreground ,alda-red :weight bold))))
    `(c-annotation-face ((t (:inherit font-lock-constant-face))))
-;;;;;; Line Numbers
+;; Line Numbers
    `(line-number ((t (:inherit default :foreground ,alda-dgray :background ,alda-bg))))
    `(line-number-current-line ((t (:inherit line-number :foreground ,alda-lgray))))
+   `(dired-directory ((t (:foreground ,alda-amber))))
+;; Org
+   `(org-level-1 ((t (:foreground ,alda-fg))))
+   `(org-level-2 ((t (:foreground ,alda-fg))))
+   `(org-level-3 ((t (:foreground ,alda-fg))))
+   `(org-level-4 ((t (:foreground ,alda-fg))))
+   `(org-agenda-structure ((t (:foreground ,alda-lgray))))
+   `(org-agenda-date ((t (:foreground ,alda-fg))))
+   `(org-todo ((t (:foreground ,alda-magenta))))
+   `(org-warning ((t (:foreground ,alda-amber))))
+   `(org-scheduled ((t (:foreground ,alda-amber))))
+   `(org-scheduled-today ((t (:foreground ,alda-cyan))))
+   `(org-upcoming-deadline ((t (:foreground ,alda-amber))))
 ))
+
 
 ;;;###autoload
 (and load-file-name
