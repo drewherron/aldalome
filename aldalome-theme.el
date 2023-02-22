@@ -72,6 +72,7 @@
    `(tty-menu-disabled-face ((t (:foreground ,alda-dgray :background ,alda-bg))))
    `(tty-menu-selected-face ((t (:foreground ,alda-bg :background ,alda-fg))))
    `(warning ((t (:foreground ,alda-red :weight bold))))
+   `(tutorial-warning-face ((t (:foreground ,alda-amber))))
    `(region ((,class (:background ,alda-dgray :extend t))
              (t :inverse-video t)))
    `(escape-glyph ((t (:foreground ,alda-amber :weight bold))))
@@ -105,6 +106,7 @@
    `(font-lock-type-face ((t (:foreground ,alda-amber))))
    `(font-lock-variable-name-face ((t (:foreground ,alda-amber))))
    `(font-lock-warning-face ((t (:foreground ,alda-red :weight bold))))
+   `(font-lock-negation-char-face ((t (:foreground ,alda-yellow :weight bold))))
    `(c-annotation-face ((t (:inherit font-lock-constant-face))))
 ;; Line Numbers
    `(line-number ((t (:inherit default :foreground ,alda-dgray :background ,alda-bg))))
@@ -122,6 +124,13 @@
    `(org-scheduled ((t (:foreground ,alda-amber))))
    `(org-scheduled-today ((t (:foreground ,alda-cyan))))
    `(org-upcoming-deadline ((t (:foreground ,alda-amber))))
+   `(org-journal-calendar-entry-face ((t (:foreground ,alda-amber))))
+;; Ido
+   `(ido-subdir ((t (:foreground ,alda-amber))))
+   `(ido-first-match ((t (:foreground ,alda-cyan))))
+   `(ido-only-match ((t (:foreground ,alda-magenta))))
+   `(ido-indicator ((t (:foreground ,alda-lgray))))
+   `(ido-incomplete-regexp ((t (:foreground ,alda-red))))
 ))
 
 
