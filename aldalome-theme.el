@@ -120,6 +120,7 @@
    `(org-agenda-structure ((t (:foreground ,alda-lgray))))
    `(org-agenda-date ((t (:foreground ,alda-fg))))
    `(org-todo ((t (:foreground ,alda-magenta))))
+   `(org-done ((t (:foreground ,alda-cyan))))
    `(org-warning ((t (:foreground ,alda-amber))))
    `(org-scheduled ((t (:foreground ,alda-amber))))
    `(org-scheduled-today ((t (:foreground ,alda-cyan))))
@@ -131,6 +132,10 @@
    `(ido-only-match ((t (:foreground ,alda-magenta))))
    `(ido-indicator ((t (:foreground ,alda-lgray))))
    `(ido-incomplete-regexp ((t (:foreground ,alda-red))))
+;; Magit
+   `(magit-branch-local ((t (:foreground ,alda-cyan))))
+   `(magit-branch-remote ((t (:foreground ,alda-cyan))))
+   `(magit-section-heading ((t (:foreground ,alda-amber))))
 ))
 
 
