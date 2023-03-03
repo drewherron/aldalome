@@ -71,7 +71,8 @@
    `(tty-menu-enabled-face ((t (:foreground ,alda-fg :background ,alda-bg))))
    `(tty-menu-disabled-face ((t (:foreground ,alda-dgray :background ,alda-bg))))
    `(tty-menu-selected-face ((t (:foreground ,alda-bg :background ,alda-fg))))
-   `(warning ((t (:foreground ,alda-red :weight bold))))
+   `(warning ((t (:foreground ,alda-red))))
+   `(error ((t (:foreground ,alda-red :weight bold))))   
    `(tutorial-warning-face ((t (:foreground ,alda-amber))))
    `(region ((,class (:background ,alda-dgray :extend t))
              (t :inverse-video t)))
@@ -136,6 +137,7 @@
    `(magit-branch-local ((t (:foreground ,alda-cyan))))
    `(magit-branch-remote ((t (:foreground ,alda-cyan))))
    `(magit-section-heading ((t (:foreground ,alda-amber))))
+   `(magit-hash ((t (:foreground ,alda-lgray))))
 ))
 
 
