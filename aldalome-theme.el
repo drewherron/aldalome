@@ -97,7 +97,7 @@
    `(font-lock-comment-delimiter-face ((t (:foreground ,alda-lgray))))
    `(font-lock-constant-face ((t (:foreground ,alda-fg))))
    `(font-lock-doc-face ((t (:foreground ,alda-fg))))
-   `(font-lock-function-name-face ((t (:foreground ,alda-cyan))))
+   `(font-lock-function-name-face ((t (:foreground ,alda-fg))))
    `(font-lock-keyword-face ((t (:foreground ,alda-amber :weight bold))))
    `(font-lock-negation-char-face ((t (:foreground ,alda-red :weight bold))))
    `(font-lock-preprocessor-face ((t (:foreground ,alda-cyan))))
@@ -105,7 +105,7 @@
    `(font-lock-regexp-grouping-backslash ((t (:foreground ,alda-yellow :weight bold))))
    `(font-lock-string-face ((t (:foreground ,alda-magenta))))
    `(font-lock-type-face ((t (:foreground ,alda-amber))))
-   `(font-lock-variable-name-face ((t (:foreground ,alda-amber))))
+   `(font-lock-variable-name-face ((t (:foreground ,alda-fg))))
    `(font-lock-warning-face ((t (:foreground ,alda-red :weight bold))))
    `(font-lock-negation-char-face ((t (:foreground ,alda-yellow :weight bold))))
    `(c-annotation-face ((t (:inherit font-lock-constant-face))))
@@ -146,7 +146,7 @@
    `(magit-diff-whitespace-warning ((t (:foreground ,alda-white :background ,alda-red))))
    ;; eww
    `(shr-link ((t (:foreground ,alda-amber))))
-   ))
+))
 
 ;;;###autoload
 (and load-file-name
