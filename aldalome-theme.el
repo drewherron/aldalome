@@ -45,20 +45,20 @@
   "List of colors.")
 
 (defmacro aldalome-with-color-variables (&rest body)
-    "`let' bind all colors defined in `aldalome-colors-alist' around BODY.
+  "`let' bind all colors defined in `aldalome-colors-alist' around BODY.
     Also bind `class' to ((class color) (min-colors 89))."
-    (declare (indent 0))
-    `(let ((class '((class color) (min-colors 89)))
-           ,@(mapcar (lambda (cons)
-                       (list (intern (car cons)) (cdr cons)))
-                     aldalome-colors-alist))
-       ,@body))
+  (declare (indent 0))
+  `(let ((class '((class color) (min-colors 89)))
+         ,@(mapcar (lambda (cons)
+                     (list (intern (car cons)) (cdr cons)))
+                   aldalome-colors-alist))
+     ,@body))
 
 ;; Theme Faces
 (aldalome-with-color-variables
   (custom-theme-set-faces
    'aldalome
-;; Colors
+   ;; Colors
    '(button ((t (:underline t))))
    `(default ((t (:foreground ,alda-fg :background ,alda-bg))))
    `(cursor ((t (:foreground ,alda-fg :background ,alda-fg))))
@@ -80,7 +80,7 @@
    `(widget-field ((t (:foreground ,alda-fg :background ,alda-bg))))
    `(vertical-border ((t (:foreground ,alda-fg :background ,alda-bg))))
    `(window-divider ((t (:foreground ,alda-fg :background ,alda-bg))))
-;; Mode Line
+   ;; Mode Line
    `(mode-line
      ((,class (:foreground ,alda-fg
                            :background ,alda-bg
@@ -91,7 +91,7 @@
      ((t (:foreground ,alda-fg
                       :background ,alda-bg
                       :box (:line-width -1 :style released-button)))))
-;; Font Lock
+   ;; Font Lock
    `(font-lock-builtin-face ((t (:foreground ,alda-fg :weight bold))))
    `(font-lock-comment-face ((t (:foreground ,alda-lgray))))
    `(font-lock-comment-delimiter-face ((t (:foreground ,alda-lgray))))
@@ -109,37 +109,44 @@
    `(font-lock-warning-face ((t (:foreground ,alda-red :weight bold))))
    `(font-lock-negation-char-face ((t (:foreground ,alda-yellow :weight bold))))
    `(c-annotation-face ((t (:inherit font-lock-constant-face))))
-;; Line Numbers
+   ;; Line Numbers
    `(line-number ((t (:inherit default :foreground ,alda-dgray :background ,alda-bg))))
    `(line-number-current-line ((t (:inherit line-number :foreground ,alda-lgray))))
    `(dired-directory ((t (:foreground ,alda-amber))))
-;; Org
+   ;; Org
    `(org-level-1 ((t (:foreground ,alda-fg))))
    `(org-level-2 ((t (:foreground ,alda-fg))))
    `(org-level-3 ((t (:foreground ,alda-fg))))
    `(org-level-4 ((t (:foreground ,alda-fg))))
    `(org-agenda-structure ((t (:foreground ,alda-lgray))))
    `(org-agenda-date ((t (:foreground ,alda-fg))))
+   `(org-agenda-done ((t (:foreground ,alda-dgray))))
    `(org-todo ((t (:foreground ,alda-magenta))))
    `(org-done ((t (:foreground ,alda-cyan))))
    `(org-warning ((t (:foreground ,alda-amber))))
    `(org-scheduled ((t (:foreground ,alda-amber))))
    `(org-scheduled-today ((t (:foreground ,alda-cyan))))
-   `(org-upcoming-deadline ((t (:foreground ,alda-amber))))
+   `(org-scheduled-previously ((t (:foreground ,alda-amber))))
+   `(org-upcoming-deadline ((t (:foreground ,alda-fg))))
+   `(org-upcoming-distant-deadline ((t (:foreground ,alda-lgray))))
    `(org-journal-calendar-entry-face ((t (:foreground ,alda-amber))))
-;; Ido
+   ;; Ido
    `(ido-subdir ((t (:foreground ,alda-amber))))
    `(ido-first-match ((t (:foreground ,alda-cyan))))
    `(ido-only-match ((t (:foreground ,alda-magenta))))
    `(ido-indicator ((t (:foreground ,alda-lgray))))
    `(ido-incomplete-regexp ((t (:foreground ,alda-red))))
-;; Magit
+   ;; Magit
    `(magit-branch-local ((t (:foreground ,alda-cyan))))
    `(magit-branch-remote ((t (:foreground ,alda-cyan))))
    `(magit-section-heading ((t (:foreground ,alda-amber))))
    `(magit-hash ((t (:foreground ,alda-lgray))))
-))
-
+   `(magit-diff-added-highlight ((t (:foreground ,alda-white :background ,alda-blue))))
+   `(magit-diff-removed-highlight ((t (:foreground ,alda-white :background ,alda-red))))
+   `(magit-diff-whitespace-warning ((t (:foreground ,alda-white :background ,alda-red))))
+   ;; eww
+   `(shr-link ((t (:foreground ,alda-amber))))
+   ))
 
 ;;;###autoload
 (and load-file-name
