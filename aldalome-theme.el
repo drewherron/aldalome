@@ -112,7 +112,6 @@
    ;; Line Numbers
    `(line-number ((t (:inherit default :foreground ,alda-dgray :background ,alda-bg))))
    `(line-number-current-line ((t (:inherit line-number :foreground ,alda-lgray))))
-   `(dired-directory ((t (:foreground ,alda-amber))))
    ;; Org
    `(org-level-1 ((t (:foreground ,alda-fg))))
    `(org-level-2 ((t (:foreground ,alda-fg))))
@@ -121,21 +120,29 @@
    `(org-agenda-structure ((t (:foreground ,alda-lgray))))
    `(org-agenda-date ((t (:foreground ,alda-lgray))))
    `(org-agenda-date-weekend ((t (:foreground ,alda-lgray))))
+   `(org-agenda-date-today ((t (:foreground ,alda-white))))
+   ;;`(org-agenda-date-today ((t (:foreground ,alda-bg :background ,alda-fg))))
    `(org-agenda-done ((t (:foreground ,alda-dgray))))
    `(org-todo ((t (:foreground ,alda-magenta))))
+   `(org-date ((t (:foreground ,alda-cyan))))
    `(org-done ((t (:foreground ,alda-cyan))))
+   `(org-drawer ((t (:foreground ,alda-lgray))))
    `(org-warning ((t (:foreground ,alda-fg))))
    `(org-scheduled ((t (:foreground ,alda-fg))))
    `(org-scheduled-today ((t (:foreground ,alda-cyan))))
    `(org-scheduled-previously ((t (:foreground ,alda-amber))))
+   `(org-special-keyword ((t (:foreground ,alda-amber))))
    `(org-upcoming-deadline ((t (:foreground ,alda-fg))))
    `(org-upcoming-distant-deadline ((t (:foreground ,alda-lgray))))
    `(org-journal-calendar-entry-face ((t (:foreground ,alda-amber))))
+   ;; Dired
+   `(dired-directory ((t (:foreground ,alda-amber))))
    ;; Helm
    `(helm-candidate-number ((t (:foreground ,alda-bg :background ,alda-fg))))
    `(helm-header ((t (:foreground ,alda-fg :background ,alda-dgray))))
+   `(helm-match ((t (:foreground ,alda-cyan))))
    `(helm-selection ((t (:background ,alda-dgray))))
-   `(helm-separator ((t (:background ,alda-fg))))
+   `(helm-separator ((t (:foreground ,alda-lgray))))
    `(helm-ff-directory ((t (:foreground ,alda-amber :weight bold))))
    `(helm-ff-dotted-directory ((t (:foreground ,alda-amber :weight bold))))
    `(helm-ff-executable ((t (:foreground ,alda-red :weight bold))))
@@ -146,6 +153,7 @@
    `(helm-buffer-directory ((t (:foreground ,alda-fg))))
    `(helm-buffer-modified ((t (:foreground ,alda-amber))))
    `(helm-buffer-not-saved ((t (:foreground ,alda-red))))
+   `(helm-buffer-process ((t (:foreground ,alda-fg))))
    `(helm-buffer-saved-out ((t (:foreground ,alda-fg))))
    `(helm-buffer-size ((t (:foreground ,alda-fg))))
    `(helm-source-header ((t (:foreground ,alda-lgray))))
@@ -165,6 +173,15 @@
    `(magit-diff-whitespace-warning ((t (:foreground ,alda-white :background ,alda-red))))
    ;; eww
    `(shr-link ((t (:foreground ,alda-amber))))
+   ;; elfeed
+   `(elfeed-search-title-face ((t (:foreground ,alda-fg))))
+   `(elfeed-search-feed-face ((t (:foreground ,alda-cyan))))
+   `(elfeed-search-date-face ((t (:foreground ,alda-lgray))))
+   `(elfeed-search-tag-face ((t (:foreground ,alda-fg))))
+   ;; messages
+   `(message-header-subject ((t (:foreground ,alda-magenta))))
+   `(message-header-to ((t (:foreground ,alda-cyan))))
+   `(message-header-other ((t (:foreground ,alda-fg))))
 ))
 
 ;;;###autoload
