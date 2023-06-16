@@ -1,11 +1,11 @@
-;  
+;
 ;    db         db                    .dP"Yb         .dP'
 ; db    db   db    db                dP'   d'       dP'
-; 
-;   'Yb   `Y888888888b. `Y8888888b.   'Yb    `Yb d88b d88b    
-;    88      .dP'          .dP'        88     88P   88   8b   
-;    88      Y8          ,dP           88     88    8P   88   
-;   .8P      `Y888d,     88            88     88  .dP  .dP    
+;
+;   'Yb   `Y888888888b. `Y8888888b.   'Yb    `Yb d88b d88b
+;    88      .dP'          .dP'        88     88P   88   8b
+;    88      Y8          ,dP           88     88    8P   88
+;   .8P      `Y888d,     88            88     88  .dP  .dP
 ;                  8b    Y8     .      88    .888888888888b.
 ;           'Yb....dP    `Yb...dP      88
 ;             `""""'       `"""'      .8P
@@ -72,7 +72,7 @@
    `(tty-menu-disabled-face ((t (:foreground ,alda-dgray :background ,alda-bg))))
    `(tty-menu-selected-face ((t (:foreground ,alda-bg :background ,alda-fg))))
    `(warning ((t (:foreground ,alda-red))))
-   `(error ((t (:foreground ,alda-red :weight bold))))   
+   `(error ((t (:foreground ,alda-red :weight bold))))
    `(tutorial-warning-face ((t (:foreground ,alda-amber))))
    `(region ((,class (:background ,alda-dgray :extend t))
              (t :inverse-video t)))
@@ -189,6 +189,9 @@
    `(message-header-subject ((t (:foreground ,alda-magenta))))
    `(message-header-to ((t (:foreground ,alda-cyan))))
    `(message-header-other ((t (:foreground ,alda-fg))))
+   `(tab-bar-tab ((t (:foreground ,alda-amber))))
+   '(tab-bar ((t (:inherit mode-line))))
+   '(tab-bar-tab-inactive ((t (:inherit mode-line-inactive :foreground "alda-fg"))))
 ))
 
 ;;;###autoload
