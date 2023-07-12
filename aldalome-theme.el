@@ -125,6 +125,7 @@
    `(org-agenda-date-today ((t (:foreground ,alda-white))))
    ;;`(org-agenda-date-today ((t (:foreground ,alda-bg :background ,alda-fg))))
    `(org-agenda-done ((t (:foreground ,alda-dgray))))
+   `(org-headline-done ((t (:foreground ,alda-dgray))))
    `(org-time-grid ((t (:foreground ,alda-lgray))))
    `(org-agenda-current-time ((t (:foreground ,alda-lgray))))
    `(org-todo ((t (:foreground ,alda-magenta))))
