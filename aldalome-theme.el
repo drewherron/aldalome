@@ -92,7 +92,7 @@
                       :background ,alda-bg
                       :box (:line-width -1 :style released-button)))))
    ;; Font Lock
-   `(font-lock-builtin-face ((t (:foreground ,alda-fg :weight bold))))
+   `(font-lock-builtin-face ((t (:foreground ,alda-cyan :weight bold))))
    `(font-lock-comment-face ((t (:foreground ,alda-lgray))))
    `(font-lock-comment-delimiter-face ((t (:foreground ,alda-lgray))))
    `(font-lock-constant-face ((t (:foreground ,alda-fg))))

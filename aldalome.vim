@@ -190,6 +190,7 @@ call s:CreateGroup('Error',           s:CGA.red,        s:CGA.black,  'REVERSE')
 call s:CreateGroup('SpellBad',        s:CGA.red,        s:CGA.white,  'REVERSE')
 call s:CreateGroup('Exception',       s:CGA.red,        s:CGA.black,  'REVERSE')
 call s:CreateGroup('Function',        s:P3.4,           s:CGA.black,  'NONE')
+call s:CreateGroup('Builtin',         s:CGA.lcyan,      s:CGA.black,  'NONE')
 call s:CreateGroup('Ignore',          s:CGA.white,      s:CGA.red,    'NONE')
 call s:CreateGroup('Identifier',      s:P3.4,           s:CGA.black,  'NONE')
 call s:CreateGroup('LineNr',          s:CGA.dgray,      s:CGA.black,  'NONE')
@@ -227,6 +228,10 @@ call s:LinkGroup('WarningMsg',       'Error')
 call s:LinkGroup('vimCommentString', 'Comment')
 call s:LinkGroup('vimCommentTitle',  'Comment')
 
+" Link builtin functions to cyan color
+call s:LinkGroup('vimFunction', 'Builtin')
+call s:LinkGroup('vimBuiltinFunc', 'Builtin')
+
 """"""""""""""
 "   Python   "
 """"""""""""""
@@ -249,7 +254,7 @@ call s:LinkGroup('vimCommentTitle',  'Comment')
 "call s:LinkGroup('pythonTripleQuotes', 'pythonQuotes')
 "call s:LinkGroup('pythonEscape', 'Special')
 "call s:LinkGroup('pythonNumber', 'Number')
-"call s:LinkGroup('pythonBuiltin', 'Function')
+call s:LinkGroup('pythonBuiltin', 'Builtin')
 "call s:LinkGroup('pythonExceptions', 'Structure')
 "call s:LinkGroup('pythonSpaceError', 'Error')
 "call s:LinkGroup('pythonDoctest', 'Special')
